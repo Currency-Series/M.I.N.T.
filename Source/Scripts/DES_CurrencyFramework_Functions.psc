@@ -17,7 +17,13 @@ Function SwapCurrency(formlist akSwapLocations, Perk akPriceMod, Form akCurrency
 	If (!LastCurrency)
 		ShouldRevertCurrency = True
 	EndIf
-	IF akSwapLocations.HasForm(PlayerRef.GetCurrentLocation()) || akSwapLocations.HasForm(PlayerRef.GetCurrentLocation().GetParent())
+	Location current = PlayerRef.GetCurrentLocation()
+	bool locationInList = akSwapLocations.HasForm(current)
+	while(!locationInList && current.GetParent())
+		current = current.GetParent()
+		locationInList = akSwapLocations.HasForm(current)
+	endWhile
+	IF locationInList
 		IF (PlayerREF.HasPerk(akPriceMod))
 			PlayerREF.RemovePerk(akPriceMod)
 		ENDIF
