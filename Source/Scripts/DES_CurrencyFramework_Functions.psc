@@ -76,7 +76,7 @@ Function ConvertCoins(formlist akSwapLocations, ObjectReference akSourceContaine
 			if akBaseItem == Gold001
 				float count = aiItemCount*aiCoinWorth.GetValue()
 				PlayerRef.removeItem(akBaseItem, aiItemCount as int, true)
-				PlayerRef.addItem(akNewCoin, count as int, true)
+				PlayerRef.addItem(akNewCoin, count as int)
 			endif
 		ENDIF
 	ENDIF
@@ -99,3 +99,11 @@ Function ExchangeCoins(Form akOldCoin, int count, Form akNewCoin, GlobalVariable
 	PlayerRef.AddItem(akNewCoin, newcount as int)
 
 endfunction
+
+;--------------------------------------------------
+
+Message Property DES_CurrencySwapperTutorialMessage auto
+
+Event OnCustomBarterMenu(Actor a_kSeller)
+	ShowTutorialMessage(DES_CurrencySwapperTutorialMessage)
+endEvent
