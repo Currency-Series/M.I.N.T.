@@ -123,17 +123,6 @@ endFunction
 
 ;--------------------------------------------------
 
-Function SetBountyCustomCurrency(ObjectReference akVictim, formlist akSwapLocations, int aiGoldAmount, GlobalVariable CustomBounty)
-	
-	CheckLocation(akSwapLocations)
-	IF locationInList
-		CustomBounty.SetValue(aiGoldAmount)
-	ENDIF
-		
-endFunction
-
-;--------------------------------------------------
-
 Function CheckLocation(formlist akSwapLocations)
 	
 	locationInList = false
