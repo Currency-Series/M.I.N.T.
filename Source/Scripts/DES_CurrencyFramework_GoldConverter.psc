@@ -1,4 +1,5 @@
-Scriptname DES_CurrencyFramework_GoldConverter extends ReferenceAlias  
+Scriptname DES_CurrencyFramework_GoldConverter extends ReferenceAlias
+{Converts all script-added Gold to custom currency while in swapped locations. Useful to ensuring that quest rewards are given in the correct currency.}
 
 Quest Property DES_CurrencyFramework auto
 Actor Property PlayerRef auto
