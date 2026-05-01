@@ -3,6 +3,7 @@ Scriptname DES_CurrencyFramework_Functions extends Quest
 Import SEA_BarterFunctions 
 
 Actor Property PlayerRef auto
+MiscObject Property Gold001 auto
 
 ;--------------------------------------------------
 
@@ -76,9 +77,14 @@ EndFunction
 Keyword Property DES_JobExchanger auto
 GlobalVariable Property DES_ConvertCoins auto
 
-Function ConvertCoins(formlist akSwapLocations, ObjectReference akSourceContainer, Form akBaseItem, MiscObject Gold001, int aiItemCount, GlobalVariable aiCoinWorth, Form akNewCoin)
-
-	IF akSwapLocations.HasForm(PlayerRef.GetCurrentLocation()) || akSwapLocations.HasForm(PlayerRef.GetCurrentLocation().GetParent())
+Function ConvertCoins(formlist akSwapLocations, ObjectReference akSourceContainer, Form akBaseItem, int aiItemCount, GlobalVariable aiCoinWorth, Form akNewCoin)
+	Location current = PlayerRef.GetCurrentLocation()
+	bool locationInList = akSwapLocations.HasForm(current)
+	while(!locationInList && current.GetParent())
+		current = current.GetParent()
+		locationInList = akSwapLocations.HasForm(current)
+	endWhile
+	IF locationInList
 		IF !aksourceContainer && !(Game.GetCurrentCrosshairRef()).HasKeyword(DES_JobExchanger) && DES_ConvertCoins.GetValue() > 0
 			if akBaseItem == Gold001
 				float count = aiItemCount*aiCoinWorth.GetValue()
@@ -106,6 +112,23 @@ Function ExchangeCoins(Form akOldCoin, int count, Form akNewCoin, GlobalVariable
 	PlayerRef.AddItem(akNewCoin, newcount as int)
 
 endfunction
+
+;--------------------------------------------------
+
+Function PayBountyCustomCurrency(actor akSpeaker, form coin)
+
+	IF GetCurrency() != Gold001
+		faction crimefaction = akSpeaker.GetCrimeFaction()
+		int bounty = crimefaction.GetCrimeGold()
+		PlayerRef.RemoveItem(coin, bounty)
+		CrimeFaction.SetCrimeGold(0)
+		CrimeFaction.SetCrimeGoldViolent(0)
+		akSpeaker.GetCrimeFaction().PlayerPayCrimeGold()
+	ELSE
+		akSpeaker.GetCrimeFaction().PlayerPayCrimeGold()
+	ENDIF
+
+endFunction
 
 ;--------------------------------------------------
 

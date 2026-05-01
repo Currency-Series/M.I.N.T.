@@ -24,5 +24,5 @@ GlobalVariable Property coinworth auto
 MiscObject Property newcoin auto
 
 Event OnItemAdded(Form akBaseItem, int aiItemCount, ObjectReference akItemReference, ObjectReference akSourceContainer)
-	(DES_CurrencyFramework as DES_CurrencyFramework_Functions).ConvertCoins(coinlocations, akSourceContainer, akBaseItem, Gold001, aiItemCount, coinworth, newcoin)
+	(DES_CurrencyFramework as DES_CurrencyFramework_Functions).ConvertCoins(coinlocations, akSourceContainer, akBaseItem, aiItemCount, coinworth, newcoin)
 EndEvent
