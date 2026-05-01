@@ -6,7 +6,7 @@ Scriptname TIF__CurrnecyFramework_PayBounty Extends TopicInfo Hidden
 Function Fragment_0(ObjectReference akSpeakerRef)
 Actor akSpeaker = akSpeakerRef as Actor
 ;BEGIN CODE
-CurrencyFunctions.PayBountyCustomCurrency(akSpeaker, currency)
+CurrencyFunctions.PayBountyCustomCurrency(akSpeaker)
 ;END CODE
 EndFunction
 ;END FRAGMENT
@@ -14,4 +14,3 @@ EndFunction
 ;END FRAGMENT CODE - Do not edit anything between this and the begin comment
 
 DES_CurrencyFramework_Functions Property CurrencyFunctions auto
-MiscObject Property currency auto
