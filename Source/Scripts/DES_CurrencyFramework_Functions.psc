@@ -25,6 +25,7 @@ Bool locationInList
 Function SwapCurrency(formlist akSwapLocations, Perk akPriceMod, Form akCurrency)
 ;Swaps currency from Gold to the relevant currency. Best placed on a Player ReferenceAlias that checks when the Player changes locations.
 
+	LastCurrency = GetCurrency()
 	ShouldRevertCurrency = False
 	If (!LastCurrency)
 		ShouldRevertCurrency = True
@@ -54,15 +55,15 @@ endFunction
 Function BarterCustomCurrency(Actor akVendor, Form akCurrency, Perk akPriceMod)
 ;Swaps currency for a single barter menu. Useful if you only want to swap currency for a single vendor. Place the TIF__CurrencyFramework_Barter script on the sale dialogue line to properly call this function. 
 
-	If (PlayerRef.HasPerk(akPriceMod))
-		PlayerRef.RemovePerk(akPriceMod)
-	EndIf
-	PlayerRef.AddPerk(akPriceMod)
 	LastCurrency = GetCurrency()
 	ShouldRevertCurrency = False
 	If (!LastCurrency)
 		ShouldRevertCurrency = True
 	EndIf
+	If (PlayerRef.HasPerk(akPriceMod))
+		PlayerRef.RemovePerk(akPriceMod)
+	EndIf
+	PlayerRef.AddPerk(akPriceMod)
 	SetCurrency(akCurrency)
 	akVendor.ShowBarterMenu()
 	;Skyrim Souls compatibility
