@@ -4,14 +4,14 @@ Scriptname DES_CurrencyFramework_Functions extends Quest
 Import SEA_BarterFunctions 
 
 ;--------------------------------------------------
-SHARED PROPERTIES
+;SHARED PROPERTIES
 ;--------------------------------------------------
 
 Actor Property PlayerRef auto
 MiscObject Property Gold001 auto
 
 ;--------------------------------------------------
-SHARED VALUES
+;SHARED VALUES
 ;--------------------------------------------------
 
 Bool ShouldRevertCurrency
@@ -19,7 +19,7 @@ Form LastCurrency
 Bool locationInList
 
 ;--------------------------------------------------
-CURRENCY FUNCTIOINS
+;CURRENCY FUNCTIOINS
 ;--------------------------------------------------
 
 Function SwapCurrency(formlist akSwapLocations, Perk akPriceMod, Form akCurrency)
@@ -116,7 +116,7 @@ Function ExchangeCoins(Form akOldCoin, int count, Form akNewCoin, GlobalVariable
 endfunction
 
 ;--------------------------------------------------
-UTILITY FUNCTIONS
+;UTILITY FUNCTIONS
 ;--------------------------------------------------
 
 Function CheckLocation(formlist akSwapLocations)
@@ -132,7 +132,7 @@ Function CheckLocation(formlist akSwapLocations)
 endFunction
 
 ;--------------------------------------------------
-TUTORIAL
+;TUTORIAL
 ;--------------------------------------------------
 
 Message Property DES_CurrencySwapperTutorialMessage auto
