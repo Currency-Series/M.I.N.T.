@@ -1,16 +1,25 @@
-Scriptname DES_CurrencyFramework_Functions extends Quest  
+Scriptname DES_CurrencyFramework_Functions extends Quest
+{Shared functions for implementing custom currency mods.}
 
 Import SEA_BarterFunctions 
+
+;--------------------------------------------------
+SHARED PROPERTIES
+;--------------------------------------------------
 
 Actor Property PlayerRef auto
 MiscObject Property Gold001 auto
 
+;--------------------------------------------------
+SHARED VALUES
 ;--------------------------------------------------
 
 Bool ShouldRevertCurrency
 Form LastCurrency
 Bool locationInList
 
+;--------------------------------------------------
+CURRENCY FUNCTIOINS
 ;--------------------------------------------------
 
 Function SwapCurrency(formlist akSwapLocations, Perk akPriceMod, Form akCurrency)
@@ -107,23 +116,7 @@ Function ExchangeCoins(Form akOldCoin, int count, Form akNewCoin, GlobalVariable
 endfunction
 
 ;--------------------------------------------------
-
-Function PayBountyCustomCurrency(actor akSpeaker)
-
-	form currency = GetCurrency()
-	IF currency != Gold001
-		faction crimefaction = akSpeaker.GetCrimeFaction()
-		int bounty = crimefaction.GetCrimeGold()
-		PlayerRef.RemoveItem(currency, bounty)
-		CrimeFaction.SetCrimeGold(0)
-		CrimeFaction.SetCrimeGoldViolent(0)
-		akSpeaker.GetCrimeFaction().PlayerPayCrimeGold()
-	ELSE
-		akSpeaker.GetCrimeFaction().PlayerPayCrimeGold()
-	ENDIF
-
-endFunction
-
+UTILITY FUNCTIONS
 ;--------------------------------------------------
 
 Function CheckLocation(formlist akSwapLocations)
@@ -138,6 +131,8 @@ Function CheckLocation(formlist akSwapLocations)
 
 endFunction
 
+;--------------------------------------------------
+TUTORIAL
 ;--------------------------------------------------
 
 Message Property DES_CurrencySwapperTutorialMessage auto
