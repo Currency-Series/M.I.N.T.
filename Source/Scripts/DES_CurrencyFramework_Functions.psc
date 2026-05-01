@@ -37,11 +37,16 @@ Function SwapCurrency(formlist akSwapLocations, Perk akPriceMod, Form akCurrency
 		ENDIF
 		PlayerREF.AddPerk(akPriceMod)
 		SetCurrency(akCurrency)
+		SuppressGoldNotifications(true)
 	ELSE
 		IF GetCurrency() == akCurrency
 			If (ShouldRevertCurrency)
+				SuppressGoldNotifications(false)
 				ResetCurrency()
 			Else
+				IF LastCurrency == Gold001
+					SuppressGoldNotifications(false)
+				ENDIF
 				SetCurrency(LastCurrency)
 			EndIf
 			PlayerREF.RemovePerk(akPriceMod)
@@ -115,8 +120,10 @@ Function ExchangeCoins(Form akOldCoin, int count, Form akNewCoin, GlobalVariable
 	else
 		newcount = count*worth
 	endif
+	SuppressGoldNotifications(false)
 	PlayerRef.RemoveItem(akOldCoin, count)
 	PlayerRef.AddItem(akNewCoin, newcount as int)
+	SuppressGoldNotifications(true)
 
 endfunction
 
