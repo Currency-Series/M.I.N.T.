@@ -108,12 +108,13 @@ endfunction
 
 ;--------------------------------------------------
 
-Function PayBountyCustomCurrency(actor akSpeaker, form coin)
+Function PayBountyCustomCurrency(actor akSpeaker)
 
-	IF GetCurrency() != Gold001
+	form currency = GetCurrency()
+	IF currency != Gold001
 		faction crimefaction = akSpeaker.GetCrimeFaction()
 		int bounty = crimefaction.GetCrimeGold()
-		PlayerRef.RemoveItem(coin, bounty)
+		PlayerRef.RemoveItem(currency, bounty)
 		CrimeFaction.SetCrimeGold(0)
 		CrimeFaction.SetCrimeGoldViolent(0)
 		akSpeaker.GetCrimeFaction().PlayerPayCrimeGold()
