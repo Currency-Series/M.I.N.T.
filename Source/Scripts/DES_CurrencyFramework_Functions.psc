@@ -52,7 +52,7 @@ endFunction
 ;--------------------------------------------------
 
 Function BarterCustomCurrency(Actor akVendor, Form akCurrency, Perk akPriceMod)
-;Swaps currency for a single barter menu. Useful if you only want to swap currency for a single vendor. Place the TIF__CurrencyFramework_Barter script into the sale dialogue line to properly call this function. 
+;Swaps currency for a single barter menu. Useful if you only want to swap currency for a single vendor. Place the TIF__CurrencyFramework_Barter script on the sale dialogue line to properly call this function. 
 
 	If (PlayerRef.HasPerk(akPriceMod))
 		PlayerRef.RemovePerk(akPriceMod)
@@ -104,7 +104,7 @@ endfunction
 ;--------------------------------------------------
 
 Function ExchangeCoins(Form akOldCoin, int count, Form akNewCoin, GlobalVariable aiCoinWorth, bool divide = false)
-;Shared exchange function for use when implementing a currency exchanger. Place the TIF__CurrencyFramework_Exchange, TIF__CurrencyFramework_ExchangeAll, or TIF__CurrencyFramework_ExchangeRoom script into the exchange dialogue line to properly call this function.
+;Shared exchange function for use when implementing a currency exchanger. Place the TIF__CurrencyFramework_Exchange, TIF__CurrencyFramework_ExchangeAll, or TIF__CurrencyFramework_ExchangeRoom script on the exchange dialogue line to properly call this function.
 
 	float worth = aiCoinWorth.GetValue()
 	float newcount
