@@ -71,12 +71,14 @@ EndFunction
 ;--------------------------------------------------
 
 Keyword Property DES_JobExchanger auto
+Keyword Property DES_ConverterExclusion auto
 GlobalVariable Property DES_ConvertCoins auto
 
 Function ConvertCoins(formlist akSwapLocations, ObjectReference akSourceContainer, Form akBaseItem, int aiItemCount, GlobalVariable aiCoinWorth, Form akNewCoin)
+	
 	CheckLocation(akSwapLocations)
 	IF locationInList
-		IF !aksourceContainer && !(Game.GetCurrentCrosshairRef()).HasKeyword(DES_JobExchanger) && DES_ConvertCoins.GetValue() > 0
+		IF !aksourceContainer && !(Game.GetCurrentCrosshairRef()).HasKeyword(DES_JobExchanger) && !(Game.GetCurrentCrosshairRef()).HasKeyword(DES_ConverterExclusion) && DES_ConvertCoins.GetValue() > 0
 			if akBaseItem == Gold001
 				float count = aiItemCount*aiCoinWorth.GetValue()
 				PlayerRef.removeItem(akBaseItem, aiItemCount as int, true)
