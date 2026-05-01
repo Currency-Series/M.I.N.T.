@@ -9,6 +9,7 @@ MiscObject Property Gold001 auto
 
 Bool ShouldRevertCurrency
 Form LastCurrency
+Bool locationInList
 
 ;--------------------------------------------------
 
@@ -18,12 +19,7 @@ Function SwapCurrency(formlist akSwapLocations, Perk akPriceMod, Form akCurrency
 	If (!LastCurrency)
 		ShouldRevertCurrency = True
 	EndIf
-	Location current = PlayerRef.GetCurrentLocation()
-	bool locationInList = akSwapLocations.HasForm(current)
-	while(!locationInList && current.GetParent())
-		current = current.GetParent()
-		locationInList = akSwapLocations.HasForm(current)
-	endWhile
+	CheckLocation(akSwapLocations)
 	IF locationInList
 		IF (PlayerREF.HasPerk(akPriceMod))
 			PlayerREF.RemovePerk(akPriceMod)
@@ -78,12 +74,7 @@ Keyword Property DES_JobExchanger auto
 GlobalVariable Property DES_ConvertCoins auto
 
 Function ConvertCoins(formlist akSwapLocations, ObjectReference akSourceContainer, Form akBaseItem, int aiItemCount, GlobalVariable aiCoinWorth, Form akNewCoin)
-	Location current = PlayerRef.GetCurrentLocation()
-	bool locationInList = akSwapLocations.HasForm(current)
-	while(!locationInList && current.GetParent())
-		current = current.GetParent()
-		locationInList = akSwapLocations.HasForm(current)
-	endWhile
+	CheckLocation(akSwapLocations)
 	IF locationInList
 		IF !aksourceContainer && !(Game.GetCurrentCrosshairRef()).HasKeyword(DES_JobExchanger) && DES_ConvertCoins.GetValue() > 0
 			if akBaseItem == Gold001
@@ -127,6 +118,31 @@ Function PayBountyCustomCurrency(actor akSpeaker, form coin)
 	ELSE
 		akSpeaker.GetCrimeFaction().PlayerPayCrimeGold()
 	ENDIF
+
+endFunction
+
+;--------------------------------------------------
+
+Function SetBountyCustomCurrency(ObjectReference akVictim, formlist akSwapLocations, int aiGoldAmount, GlobalVariable CustomBounty)
+	
+	CheckLocation(akSwapLocations)
+	IF locationInList
+		CustomBounty.SetValue(aiGoldAmount)
+	ENDIF
+		
+endFunction
+
+;--------------------------------------------------
+
+Function CheckLocation(formlist akSwapLocations)
+	
+	locationInList = false
+	Location current = PlayerRef.GetCurrentLocation()
+	locationInList = akSwapLocations.HasForm(current)
+	while(!locationInList && current.GetParent())
+		current = current.GetParent()
+		locationInList = akSwapLocations.HasForm(current)
+	endWhile
 
 endFunction
 
