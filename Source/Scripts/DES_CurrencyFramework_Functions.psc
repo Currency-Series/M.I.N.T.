@@ -1,5 +1,5 @@
 Scriptname DES_CurrencyFramework_Functions extends Quest
-{Shared functions for implementing custom currency mods.}
+{Shared functions for implementing Currency Swapper mods.}
 
 Import SEA_BarterFunctions 
 
@@ -23,6 +23,7 @@ Bool locationInList
 ;--------------------------------------------------
 
 Function SwapCurrency(formlist akSwapLocations, Perk akPriceMod, Form akCurrency)
+;Swaps currency from Gold to the relevant currency. Best placed on a Player ReferenceAlias that checks when the Player changes locations.
 
 	ShouldRevertCurrency = False
 	If (!LastCurrency)
@@ -51,6 +52,7 @@ endFunction
 ;--------------------------------------------------
 
 Function BarterCustomCurrency(Actor akVendor, Form akCurrency, Perk akPriceMod)
+;Swaps currency for a single barter menu. Useful if you only want to swap currency for a single vendor. Place the TIF__CurrencyFramework_Barter script into the sale dialogue line to properly call this function. 
 
 	If (PlayerRef.HasPerk(akPriceMod))
 		PlayerRef.RemovePerk(akPriceMod)
@@ -84,6 +86,7 @@ Keyword Property DES_ConverterExclusion auto
 GlobalVariable Property DES_ConvertCoins auto
 
 Function ConvertCoins(formlist akSwapLocations, ObjectReference akSourceContainer, Form akBaseItem, int aiItemCount, GlobalVariable aiCoinWorth, Form akNewCoin)
+;Converts all script-added Gold to custom currency while in swapped locations. Useful to ensuring that quest rewards are given in the correct currency.
 	
 	CheckLocation(akSwapLocations)
 	IF locationInList
@@ -101,6 +104,7 @@ endfunction
 ;--------------------------------------------------
 
 Function ExchangeCoins(Form akOldCoin, int count, Form akNewCoin, GlobalVariable aiCoinWorth, bool divide = false)
+;Shared exchange function for use when implementing a currency exchanger. Place the TIF__CurrencyFramework_Exchange, TIF__CurrencyFramework_ExchangeAll, or TIF__CurrencyFramework_ExchangeRoom script into the exchange dialogue line to properly call this function.
 
 	float worth = aiCoinWorth.GetValue()
 	float newcount
@@ -120,6 +124,7 @@ endfunction
 ;--------------------------------------------------
 
 Function CheckLocation(formlist akSwapLocations)
+;Utility function to check to see if the Player is in a swapped location.
 	
 	locationInList = false
 	Location current = PlayerRef.GetCurrentLocation()
@@ -138,5 +143,6 @@ endFunction
 Message Property DES_CurrencySwapperTutorialMessage auto
 
 Event OnCustomBarterMenu(Actor a_kSeller)
+;Triggers a one-time tutorial pop-up explaining how alternative currencies work.
 	ShowTutorialMessage(DES_CurrencySwapperTutorialMessage)
 endEvent
