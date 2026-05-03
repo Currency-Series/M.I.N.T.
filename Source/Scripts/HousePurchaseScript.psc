@@ -1,5 +1,7 @@
 Scriptname HousePurchaseScript extends Quest  Conditional
 
+Import SEA_BarterFunctions 
+
 ;Properties
 miscobject Property Gold  Auto  
 faction Property PlayerFaction  Auto  
