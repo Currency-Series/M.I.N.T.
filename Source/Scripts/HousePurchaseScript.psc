@@ -17,11 +17,7 @@ bool Property WhiterunHousecarlGreet Auto conditional
 
 function PurchaseHouse(cell HouseInterior, key HouseKey, book DecoratingGuide, globalvariable GoldAmount)
 
-	if GetCurrency() == Gold
-		game.getplayer().RemoveItem(Gold, GoldAmount.getvalueint())
-	else
-		game.getplayer().RemoveItem(GetCurrency(), GoldAmount.getvalueint())
-	endif	
+	game.getplayer().RemoveItem(GetCurrency(), GoldAmount.getvalueint())
 
 	game.getplayer().AddItem(HouseKey)
 
