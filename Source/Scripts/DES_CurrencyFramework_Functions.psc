@@ -96,7 +96,7 @@ Function ConvertCoins(formlist akSwapLocations, ObjectReference akSourceContaine
 	
 	CheckLocation(akSwapLocations)
 	IF locationInList
-		IF !aksourceContainer && !(Game.GetCurrentCrosshairRef()).HasKeyword(DES_JobExchanger) && !(Game.GetCurrentCrosshairRef()).HasKeyword(DES_ConverterExclusion) && DES_ConvertCoins.GetValue() > 0
+		IF !aksourceContainer && !(Game.GetCurrentCrosshairRef()).HasKeyword(DES_ConverterExclusion) && DES_ConvertCoins.GetValue() > 0
 			if akBaseItem == Gold001
 				float count = aiItemCount*aiCoinWorth.GetValue()
 				PlayerRef.removeItem(akBaseItem, aiItemCount as int, true)
