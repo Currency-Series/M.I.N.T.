@@ -90,7 +90,7 @@ EndFunction
 Keyword Property DES_JobExchanger auto
 Keyword Property DES_ConverterExclusion auto
 GlobalVariable Property DES_ConvertCoins auto
-;Sound Property GoldPickup auto
+Sound Property ITMGoldUp auto
 
 Function ConvertCoins(formlist akSwapLocations, ObjectReference akSourceContainer, Form akBaseItem, int aiItemCount, GlobalVariable aiCoinWorth, Form akNewCoin)
 ;Converts all script-added Gold to custom currency while in swapped locations. Useful to ensuring that quest rewards are given in the correct currency.
@@ -103,12 +103,12 @@ Function ConvertCoins(formlist akSwapLocations, ObjectReference akSourceContaine
 				PlayerRef.removeItem(akBaseItem, aiItemCount as int, true)
 				PlayerRef.addItem(akNewCoin, count as int)
 			endif
-		;ELSEIF (Game.GetCurrentCrosshairRef()).HasKeyword(DES_ConverterExclusion) 
-		;	if akBaseItem == Gold001
-		;		GoldPickup.Play(PlayerRef)
-		;		debug.notification(akBaseItem + " (" + aiItemCount + ") Added")
-		;	endif
-		;ENDIF
+		ELSEIF (Game.GetCurrentCrosshairRef()).HasKeyword(DES_ConverterExclusion) 
+			if akBaseItem == Gold001
+				ITMGoldUp.Play(PlayerRef)
+				debug.notification(akBaseItem + " (" + aiItemCount + ") Added")
+			endif
+		ENDIF
 	ENDIF
 
 endfunction
