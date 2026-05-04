@@ -96,14 +96,14 @@ Function ConvertCoins(formlist akSwapLocations, ObjectReference akSourceContaine
 ;Converts all script-added Gold to custom currency while in swapped locations. Useful to ensuring that quest rewards are given in the correct currency.
 	
 	CheckLocation(akSwapLocations)
-	IF locationInList
-		IF !aksourceContainer && !(Game.GetCurrentCrosshairRef()).HasKeyword(DES_ConverterExclusion) && DES_ConvertCoins.GetValue() > 0
+	IF locationInList && !aksourceContainer && DES_ConvertCoins.GetValue() > 0
+		IF !(Game.GetCurrentCrosshairRef()).HasKeyword(DES_ConverterExclusion)
 			if akBaseItem == Gold001
 				float count = aiItemCount*aiCoinWorth.GetValue()
 				PlayerRef.removeItem(akBaseItem, aiItemCount as int, true)
 				PlayerRef.addItem(akNewCoin, count as int)
 			endif
-		;ELSEIF !aksourceContainer && (Game.GetCurrentCrosshairRef()).HasKeyword(DES_ConverterExclusion) && DES_ConvertCoins.GetValue() > 0
+		;ELSEIF (Game.GetCurrentCrosshairRef()).HasKeyword(DES_ConverterExclusion) 
 		;	if akBaseItem == Gold001
 		;		GoldPickup.Play(PlayerRef)
 		;		debug.notification(akBaseItem + " (" + aiItemCount + ") Added")
