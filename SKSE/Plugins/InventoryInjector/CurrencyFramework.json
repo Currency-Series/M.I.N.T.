@@ -8,7 +8,7 @@
           "anyOf": [
             "Update.esm|DE5017",
             "Update.esm|DE5018",
-            "Update.esm|0xDE5023",
+            "Update.esm|DE5023",
             "Update.esm|DE5024",
             "Update.esm|DE5027",
             "Update.esm|DE5029"
