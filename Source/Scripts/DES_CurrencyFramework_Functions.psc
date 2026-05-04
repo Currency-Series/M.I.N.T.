@@ -102,7 +102,11 @@ Function ConvertCoins(formlist akSwapLocations, ObjectReference akSourceContaine
 				PlayerRef.removeItem(akBaseItem, aiItemCount as int, true)
 				PlayerRef.addItem(akNewCoin, count as int)
 			endif
-		ENDIF
+		;ELSEIF !aksourceContainer && (Game.GetCurrentCrosshairRef()).HasKeyword(DES_ConverterExclusion) && DES_ConvertCoins.GetValue() > 0
+		;	if akBaseItem == Gold001
+		;		debug.notification(akBaseItem + " (" + aiItemCount + ") Added")
+		;	endif
+		;ENDIF
 	ENDIF
 
 endfunction
@@ -120,10 +124,8 @@ Function ExchangeCoins(Form akOldCoin, int count, Form akNewCoin, GlobalVariable
 	else
 		newcount = count*worth
 	endif
-	SuppressGoldNotifications(false)
 	PlayerRef.RemoveItem(akOldCoin, count)
 	PlayerRef.AddItem(akNewCoin, newcount as int)
-	SuppressGoldNotifications(true)
 
 endfunction
 
