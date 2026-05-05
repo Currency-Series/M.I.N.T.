@@ -58,25 +58,25 @@ Form LastCurrency
 	CurrencyIsSwapping = 1
 	LastCurrency = GetCurrency()
 	ShouldRevertCurrency = False
-	If (!LastCurrency)
+	IF (!LastCurrency)
 		ShouldRevertCurrency = True
-	EndIf
-	If (PlayerRef.HasPerk(akPriceMod))
+	ELSEIF
+	IF (PlayerRef.HasPerk(akPriceMod))
 		PlayerRef.RemovePerk(akPriceMod)
-	EndIf
+	ENDIF
 	PlayerRef.AddPerk(akPriceMod)
 	SetCurrency(akCurrency)
 	akVendor.ShowBarterMenu()
 	;Skyrim Souls compatibility
-	While (Utility.IsInMenuMode())
+	WHILE (Utility.IsInMenuMode())
 		Utility.Wait(0.1)
-	EndWhile
+	ENDWHILE
 	;Skyrim Souls compatibility
-	If (ShouldRevertCurrency)
+	IF (ShouldRevertCurrency)
 		ResetCurrency()
-	Else
+	ELSE
 		SetCurrency(LastCurrency)
-	EndIf
+	ELSEIF
 	PlayerRef.RemovePerk(akPriceMod)
 	CurrencyIsSwapping = 0
 
@@ -92,22 +92,22 @@ Sound Property ITMGoldUp auto
 Function ConvertCoins(formlist akSwapLocations, ObjectReference akSourceContainer, Form akBaseItem, int aiItemCount, GlobalVariable aiCoinWorth, Form akNewCoin)
 ;Converts all script-added Gold to custom currency while in swapped locations. Useful to ensuring that quest rewards are given in the correct currency.
 
-	IF akSourceContainer != NONE
-		RETURN
+	IF !akSourceContainer || DES_ConvertCoins.GetValue() > 0
+		return
 	ELSE
 		CheckLocation(akSwapLocations)
-		IF locationInList && DES_ConvertCoins.GetValue() > 0
+		IF locationInList
 			IF !(Game.GetCurrentCrosshairRef()).HasKeyword(DES_ConverterExclusion)
-				if akBaseItem == Gold001
+				IF akBaseItem == Gold001
 					float count = aiItemCount*aiCoinWorth.GetValue()
 					PlayerRef.removeItem(akBaseItem, aiItemCount as int, true)
 					PlayerRef.addItem(akNewCoin, count as int)
-				endif
+				ELSEIF
 			ELSEIF (Game.GetCurrentCrosshairRef()).HasKeyword(DES_ConverterExclusion) 
-				if akBaseItem == Gold001
+				IF akBaseItem == Gold001
 					ITMGoldUp.Play(PlayerRef)
 					debug.notification(akBaseItem.GetName() + " (" + aiItemCount + ") Added")
-				endif
+				ELSEIF
 			ENDIF
 		ENDIF
 	ENDIF
@@ -122,11 +122,11 @@ Function ExchangeCoins(Form akOldCoin, int count, Form akNewCoin, GlobalVariable
 	float worth = aiCoinWorth.GetValue()
 	float newcount
 
-	if divide
+	IF divide
 		newcount = count/worth
-	else
+	ELSE
 		newcount = count*worth
-	endif
+	ENDIF
 	PlayerRef.RemoveItem(akOldCoin, count)
 	PlayerRef.AddItem(akNewCoin, newcount as int)
 
@@ -142,10 +142,10 @@ Function CheckLocation(formlist akSwapLocations)
 	locationInList = false
 	Location current = PlayerRef.GetCurrentLocation()
 	locationInList = akSwapLocations.HasForm(current)
-	while(!locationInList && current.GetParent())
+	WHILE(!locationInList && current.GetParent())
 		current = current.GetParent()
 		locationInList = akSwapLocations.HasForm(current)
-	endWhile
+	ENDWHILE
 
 endFunction
 
