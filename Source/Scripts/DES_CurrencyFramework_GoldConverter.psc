@@ -25,5 +25,7 @@ GlobalVariable Property coinworth auto
 MiscObject Property newcoin auto
 
 Event OnItemAdded(Form akBaseItem, int aiItemCount, ObjectReference akItemReference, ObjectReference akSourceContainer)
-	CurrencyFunctions.ConvertCoins(coinlocations, akSourceContainer, akBaseItem, aiItemCount, coinworth, newcoin)
+	IF akBaseItem == Gold001
+		CurrencyFunctions.ConvertCoins(coinlocations, akSourceContainer, akBaseItem, aiItemCount, coinworth, newcoin)
+	ENDIF
 EndEvent
