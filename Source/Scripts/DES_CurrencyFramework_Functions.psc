@@ -34,7 +34,6 @@ Function SwapCurrency(formlist akSwapLocations, Perk akPriceMod, Form akCurrency
 		PlayerREF.AddPerk(akPriceMod)
 		SetCurrency(akCurrency)
 		SuppressGoldNotifications(true)
-		Debug.Notification(PlayerRef.GetCurrentLocation().GetName + " trades in " + akCurrency.GetName() + ".")
 	ELSE
 		CheckLocation(DES_CustomCurrencyLocations)
 		IF !locationInList
