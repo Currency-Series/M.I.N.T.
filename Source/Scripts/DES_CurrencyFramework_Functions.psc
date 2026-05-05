@@ -17,10 +17,16 @@ MiscObject Property Gold001 auto
 Bool locationInList
 
 ;--------------------------------------------------
+;SHARED VARIABLES
+;--------------------------------------------------
+
+int Property RevertingList auto conditional
+
+;--------------------------------------------------
 ;CURRENCY FUNCTIOINS
 ;--------------------------------------------------
 
-Formlist Property DES_CustomCurrencyLocationExclusions auto
+Formlist Property DES_CustomCurrencyLocations auto
 
 Function SwapCurrency(formlist akSwapLocations, Perk akPriceMod, Form akCurrency)
 ;Swaps currency from Gold to the relevant currency. Best placed on a Player ReferenceAlias that checks when the Player changes locations.
@@ -34,7 +40,7 @@ Function SwapCurrency(formlist akSwapLocations, Perk akPriceMod, Form akCurrency
 		SetCurrency(akCurrency)
 		SuppressGoldNotifications(true)
 	ELSE
-		CheckLocation(DES_CustomCurrencyLocationExclusions)
+		CheckLocation(DES_CustomCurrencyLocations)
 		IF !locationInList
 			SuppressGoldNotifications(false)
 			ResetCurrency()
@@ -154,9 +160,3 @@ Event OnCustomBarterMenu(Actor a_kSeller)
 ;Triggers a one-time tutorial pop-up explaining how alternative currencies work.
 	ShowTutorialMessage(DES_CurrencySwapperTutorialMessage)
 endEvent
-
-;--------------------------------------------------
-;INT VARIABLES
-;--------------------------------------------------
-
-int property InJail auto conditional
