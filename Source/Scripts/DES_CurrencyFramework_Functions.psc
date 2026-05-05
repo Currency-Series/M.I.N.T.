@@ -1,4 +1,4 @@
-Scriptname DES_CurrencyFramework_Functions extends Quest conditional
+Scriptname DES_CurrencyFramework_Functions extends Quest
 {Shared functions for implementing Currency Swapper mods.}
 
 Import SEA_BarterFunctions 
@@ -17,21 +17,16 @@ MiscObject Property Gold001 auto
 Bool locationInList
 
 ;--------------------------------------------------
-;SHARED VARIABLES
-;--------------------------------------------------
-
-int Property CurrencyIsSwapping auto conditional
-
-;--------------------------------------------------
 ;CURRENCY FUNCTIOINS
 ;--------------------------------------------------
 
+Bool CurrencyIsSwapping
 Formlist Property DES_CustomCurrencyLocations auto
 
 Function SwapCurrency(formlist akSwapLocations, Perk akPriceMod, Form akCurrency)
 ;Swaps currency from Gold to the relevant currency. Best placed on a Player ReferenceAlias that checks when the Player changes locations.
 
-	CurrencyIsSwapping = 1
+	CurrencyIsSwapping = true
 	CheckLocation(akSwapLocations)
 	IF locationInList
 		IF (PlayerREF.HasPerk(akPriceMod))
@@ -48,7 +43,7 @@ Function SwapCurrency(formlist akSwapLocations, Perk akPriceMod, Form akCurrency
 			PlayerREF.RemovePerk(akPriceMod)
 		ENDIF
 	ENDIF
-	CurrencyIsSwapping = 0
+	CurrencyIsSwapping = false
 
 endFunction
 
