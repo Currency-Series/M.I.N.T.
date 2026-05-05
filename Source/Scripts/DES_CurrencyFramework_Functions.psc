@@ -8,7 +8,6 @@ Import SEA_BarterFunctions
 ;--------------------------------------------------
 
 Actor Property PlayerRef auto
-MiscObject Property Gold001 auto
 
 ;--------------------------------------------------
 ;SHARED VALUES
@@ -98,16 +97,12 @@ Function ConvertCoins(formlist akSwapLocations, ObjectReference akSourceContaine
 		CheckLocation(akSwapLocations)
 		IF locationInList
 			IF !(Game.GetCurrentCrosshairRef()).HasKeyword(DES_ConverterExclusion)
-				IF akBaseItem == Gold001
-					float count = aiItemCount*aiCoinWorth.GetValue()
-					PlayerRef.removeItem(akBaseItem, aiItemCount as int, true)
-					PlayerRef.addItem(akNewCoin, count as int)
-				ELSEIF
+				float count = aiItemCount*aiCoinWorth.GetValue()
+				PlayerRef.removeItem(akBaseItem, aiItemCount as int, true)
+				PlayerRef.addItem(akNewCoin, count as int)
 			ELSEIF (Game.GetCurrentCrosshairRef()).HasKeyword(DES_ConverterExclusion) 
-				IF akBaseItem == Gold001
-					ITMGoldUp.Play(PlayerRef)
-					debug.notification(akBaseItem.GetName() + " (" + aiItemCount + ") Added")
-				ELSEIF
+				ITMGoldUp.Play(PlayerRef)
+				debug.notification(akBaseItem.GetName() + " (" + aiItemCount + ") Added")
 			ENDIF
 		ENDIF
 	ENDIF
