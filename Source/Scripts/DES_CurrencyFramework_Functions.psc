@@ -27,13 +27,14 @@ Function SwapCurrency(formlist akSwapLocations, Perk akPriceMod, Form akCurrency
 
 	CurrencyIsSwapping = true
 	CheckLocation(akSwapLocations)
-	IF locationInList
+	IF locationInList && akCurrency != GetCurrency()
 		IF (PlayerREF.HasPerk(akPriceMod))
 			PlayerREF.RemovePerk(akPriceMod)
 		ENDIF
 		PlayerREF.AddPerk(akPriceMod)
 		SetCurrency(akCurrency)
 		SuppressGoldNotifications(true)
+		Debug.Notification(PlayerRef.GetCurrentLocation().GetName + " trades in " + akCurrency.GetName())
 	ELSE
 		CheckLocation(DES_CustomCurrencyLocations)
 		IF !locationInList
