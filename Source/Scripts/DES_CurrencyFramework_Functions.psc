@@ -20,7 +20,7 @@ Bool locationInList
 ;SHARED VARIABLES
 ;--------------------------------------------------
 
-int Property RevertingList auto conditional
+int Property CurrencyIsSwapping auto conditional
 
 ;--------------------------------------------------
 ;CURRENCY FUNCTIOINS
@@ -31,6 +31,7 @@ Formlist Property DES_CustomCurrencyLocations auto
 Function SwapCurrency(formlist akSwapLocations, Perk akPriceMod, Form akCurrency)
 ;Swaps currency from Gold to the relevant currency. Best placed on a Player ReferenceAlias that checks when the Player changes locations.
 
+	CurrencyIsSwapping = 1
 	CheckLocation(akSwapLocations)
 	IF locationInList
 		IF (PlayerREF.HasPerk(akPriceMod))
@@ -47,6 +48,7 @@ Function SwapCurrency(formlist akSwapLocations, Perk akPriceMod, Form akCurrency
 			PlayerREF.RemovePerk(akPriceMod)
 		ENDIF
 	ENDIF
+	CurrencyIsSwapping = 0
 
 endFunction
 
@@ -58,6 +60,7 @@ Function BarterCustomCurrency(Actor akVendor, Form akCurrency, Perk akPriceMod)
 Bool ShouldRevertCurrency
 Form LastCurrency
 
+	CurrencyIsSwapping = 1
 	LastCurrency = GetCurrency()
 	ShouldRevertCurrency = False
 	If (!LastCurrency)
@@ -80,6 +83,7 @@ Form LastCurrency
 		SetCurrency(LastCurrency)
 	EndIf
 	PlayerRef.RemovePerk(akPriceMod)
+	CurrencyIsSwapping = 0
 
 EndFunction
 
