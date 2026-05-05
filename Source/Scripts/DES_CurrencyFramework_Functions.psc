@@ -1,4 +1,4 @@
-Scriptname DES_CurrencyFramework_Functions extends Quest
+Scriptname DES_CurrencyFramework_Functions extends Quest conditional
 {Shared functions for implementing Currency Swapper mods.}
 
 Import SEA_BarterFunctions 
@@ -14,22 +14,17 @@ MiscObject Property Gold001 auto
 ;SHARED VALUES
 ;--------------------------------------------------
 
-Bool ShouldRevertCurrency
-Form LastCurrency
 Bool locationInList
 
 ;--------------------------------------------------
 ;CURRENCY FUNCTIOINS
 ;--------------------------------------------------
 
+Formlist Property DES_CustomCurrencyLocationExclusions auto
+
 Function SwapCurrency(formlist akSwapLocations, Perk akPriceMod, Form akCurrency)
 ;Swaps currency from Gold to the relevant currency. Best placed on a Player ReferenceAlias that checks when the Player changes locations.
 
-	LastCurrency = GetCurrency()
-	ShouldRevertCurrency = False
-	If (!LastCurrency)
-		ShouldRevertCurrency = True
-	EndIf
 	CheckLocation(akSwapLocations)
 	IF locationInList
 		IF (PlayerREF.HasPerk(akPriceMod))
@@ -39,16 +34,10 @@ Function SwapCurrency(formlist akSwapLocations, Perk akPriceMod, Form akCurrency
 		SetCurrency(akCurrency)
 		SuppressGoldNotifications(true)
 	ELSE
-		IF GetCurrency() == akCurrency
-			If (ShouldRevertCurrency)
-				SuppressGoldNotifications(false)
-				ResetCurrency()
-			Else
-				IF LastCurrency == Gold001
-					SuppressGoldNotifications(false)
-				ENDIF
-				SetCurrency(LastCurrency)
-			EndIf
+		CheckLocation(DES_CustomCurrencyLocationExclusions)
+		IF !locationInList
+			SuppressGoldNotifications(false)
+			ResetCurrency()
 			PlayerREF.RemovePerk(akPriceMod)
 		ENDIF
 	ENDIF
@@ -59,6 +48,9 @@ endFunction
 
 Function BarterCustomCurrency(Actor akVendor, Form akCurrency, Perk akPriceMod)
 ;Swaps currency for a single barter menu. Useful if you only want to swap currency for a single vendor. Place the TIF__CurrencyFramework_Barter script on the sale dialogue line to properly call this function. 
+
+Bool ShouldRevertCurrency
+Form LastCurrency
 
 	LastCurrency = GetCurrency()
 	ShouldRevertCurrency = False
@@ -94,20 +86,24 @@ Sound Property ITMGoldUp auto
 
 Function ConvertCoins(formlist akSwapLocations, ObjectReference akSourceContainer, Form akBaseItem, int aiItemCount, GlobalVariable aiCoinWorth, Form akNewCoin)
 ;Converts all script-added Gold to custom currency while in swapped locations. Useful to ensuring that quest rewards are given in the correct currency.
-	
-	CheckLocation(akSwapLocations)
-	IF locationInList && !aksourceContainer && DES_ConvertCoins.GetValue() > 0
-		IF !(Game.GetCurrentCrosshairRef()).HasKeyword(DES_ConverterExclusion)
-			if akBaseItem == Gold001
-				float count = aiItemCount*aiCoinWorth.GetValue()
-				PlayerRef.removeItem(akBaseItem, aiItemCount as int, true)
-				PlayerRef.addItem(akNewCoin, count as int)
-			endif
-		ELSEIF (Game.GetCurrentCrosshairRef()).HasKeyword(DES_ConverterExclusion) 
-			if akBaseItem == Gold001
-				ITMGoldUp.Play(PlayerRef)
-				debug.notification(akBaseItem + " (" + aiItemCount + ") Added")
-			endif
+
+	IF akSourceContainer != NONE
+		RETURN
+	ELSE
+		CheckLocation(akSwapLocations)
+		IF locationInList && DES_ConvertCoins.GetValue() > 0
+			IF !(Game.GetCurrentCrosshairRef()).HasKeyword(DES_ConverterExclusion)
+				if akBaseItem == Gold001
+					float count = aiItemCount*aiCoinWorth.GetValue()
+					PlayerRef.removeItem(akBaseItem, aiItemCount as int, true)
+					PlayerRef.addItem(akNewCoin, count as int)
+				endif
+			ELSEIF (Game.GetCurrentCrosshairRef()).HasKeyword(DES_ConverterExclusion) 
+				if akBaseItem == Gold001
+					ITMGoldUp.Play(PlayerRef)
+					debug.notification(akBaseItem.GetName() + " (" + aiItemCount + ") Added")
+				endif
+			ENDIF
 		ENDIF
 	ENDIF
 
@@ -158,3 +154,9 @@ Event OnCustomBarterMenu(Actor a_kSeller)
 ;Triggers a one-time tutorial pop-up explaining how alternative currencies work.
 	ShowTutorialMessage(DES_CurrencySwapperTutorialMessage)
 endEvent
+
+;--------------------------------------------------
+;INT VARIABLES
+;--------------------------------------------------
+
+int property InJail auto conditional
