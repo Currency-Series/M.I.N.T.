@@ -19,7 +19,7 @@ Bool locationInList
 ;CURRENCY FUNCTIOINS
 ;--------------------------------------------------
 
-Bool CurrencyIsSwapping
+Bool Property CurrencyIsSwapping auto
 Formlist Property DES_CustomCurrencyLocations auto
 
 Function SwapCurrency(formlist akSwapLocations, Perk akPriceMod, Form akCurrency)
@@ -59,7 +59,7 @@ Form LastCurrency
 	ShouldRevertCurrency = False
 	IF (!LastCurrency)
 		ShouldRevertCurrency = True
-	ELSEIF
+	ENDIF
 	IF (PlayerRef.HasPerk(akPriceMod))
 		PlayerRef.RemovePerk(akPriceMod)
 	ENDIF
@@ -75,7 +75,7 @@ Form LastCurrency
 		ResetCurrency()
 	ELSE
 		SetCurrency(LastCurrency)
-	ELSEIF
+	ENDIF
 	PlayerRef.RemovePerk(akPriceMod)
 	CurrencyIsSwapping = 0
 
@@ -96,11 +96,11 @@ Function ConvertCoins(formlist akSwapLocations, ObjectReference akSourceContaine
 	ELSE
 		CheckLocation(akSwapLocations)
 		IF locationInList
-			IF !(Game.GetCurrentCrosshairRef()).HasKeyword(DES_ConverterExclusion) || !Player.GetCurrentLocation().HasKeyword(DES_ConverterExclusion)
+			IF !(Game.GetCurrentCrosshairRef()).HasKeyword(DES_ConverterExclusion) || !PlayerRef.GetCurrentLocation().HasKeyword(DES_ConverterExclusion)
 				float count = aiItemCount*aiCoinWorth.GetValue()
 				PlayerRef.removeItem(akBaseItem, aiItemCount as int, true)
 				PlayerRef.addItem(akNewCoin, count as int)
-			ELSEIF (Game.GetCurrentCrosshairRef()).HasKeyword(DES_ConverterExclusion) || Player.GetCurrentLocation().HasKeyword(DES_ConverterExclusion)
+			ELSEIF (Game.GetCurrentCrosshairRef()).HasKeyword(DES_ConverterExclusion) || PlayerRef.GetCurrentLocation().HasKeyword(DES_ConverterExclusion)
 				ITMGoldUp.Play(PlayerRef)
 				debug.notification(akBaseItem.GetName() + " (" + aiItemCount + ") Added")
 			ENDIF
