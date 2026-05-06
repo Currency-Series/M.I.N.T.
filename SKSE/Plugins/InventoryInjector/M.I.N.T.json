@@ -6,21 +6,20 @@
         "formType": "MiscItem",
         "formId": {
           "anyOf": [
-            "Skyrim.esm|F",
             "Update.esm|DE5017",
             "Update.esm|DE5018",
-            "Update.esm|DE5023",
+            "Update.esm|0xDE5023",
             "Update.esm|DE5024",
             "Update.esm|DE5027",
-            "Update.esm|DE5029"
-
+            "Update.esm|DE5029",
+            "Skyrim.esm|F"
           ]
         }
       },
       "assign": {
         "subType": "Gold",
         "iconColor": "#CCCC33",
-        "subTypeDisplay": "$MINT_Currency"
+        "subTypeDisplay": "$Currency"
       }
     }
   ]
