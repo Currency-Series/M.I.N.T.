@@ -1,1 +1,1 @@
-$MINTCurrency	Currency
+$MINT_Currency	Currency
