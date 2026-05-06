@@ -91,7 +91,7 @@ Sound Property ITMGoldUp auto
 Function ConvertCoins(formlist akSwapLocations, ObjectReference akSourceContainer, Form akBaseItem, int aiItemCount, GlobalVariable aiCoinWorth, Form akNewCoin)
 ;Converts all script-added Gold to custom currency while in swapped locations. Useful to ensuring that quest rewards are given in the correct currency.
 
-	IF !akSourceContainer || DES_ConvertCoins.GetValue() > 0
+	IF !akSourceContainer && DES_ConvertCoins.GetValue() > 0
 		return
 	ELSE
 		CheckLocation(akSwapLocations)
