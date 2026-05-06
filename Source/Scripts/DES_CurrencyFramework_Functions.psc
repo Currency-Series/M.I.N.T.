@@ -83,7 +83,6 @@ EndFunction
 
 ;--------------------------------------------------
 
-Keyword Property DES_JobExchanger auto
 Keyword Property DES_ConverterExclusion auto
 GlobalVariable Property DES_ConvertCoins auto
 Sound Property ITMGoldUp auto
@@ -96,11 +95,11 @@ Function ConvertCoins(formlist akSwapLocations, ObjectReference akSourceContaine
 	ELSE
 		CheckLocation(akSwapLocations)
 		IF locationInList
-			IF !(Game.GetCurrentCrosshairRef()).HasKeyword(DES_ConverterExclusion) || !PlayerRef.GetCurrentLocation().HasKeyword(DES_ConverterExclusion)
+			IF !(Game.GetCurrentCrosshairRef()).HasKeyword(DES_ConverterExclusion) ;&& !PlayerRef.GetCurrentLocation().HasKeyword(DES_ConverterExclusion)
 				float count = aiItemCount*aiCoinWorth.GetValue()
 				PlayerRef.removeItem(akBaseItem, aiItemCount as int, true)
 				PlayerRef.addItem(akNewCoin, count as int)
-			ELSEIF (Game.GetCurrentCrosshairRef()).HasKeyword(DES_ConverterExclusion) || PlayerRef.GetCurrentLocation().HasKeyword(DES_ConverterExclusion)
+			ELSEIF (Game.GetCurrentCrosshairRef()).HasKeyword(DES_ConverterExclusion) ;|| PlayerRef.GetCurrentLocation().HasKeyword(DES_ConverterExclusion)
 				ITMGoldUp.Play(PlayerRef)
 				debug.notification(akBaseItem.GetName() + " (" + aiItemCount + ") Added")
 			ENDIF
