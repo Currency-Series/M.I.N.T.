@@ -142,14 +142,3 @@ Function CheckLocation(formlist akSwapLocations)
 	ENDWHILE
 
 endFunction
-
-;--------------------------------------------------
-;TUTORIAL
-;--------------------------------------------------
-
-Message Property DES_CurrencySwapperTutorialMessage auto
-
-Event OnCustomBarterMenu(Actor a_kSeller)
-;Triggers a one-time tutorial pop-up explaining how alternative currencies work.
-	ShowTutorialMessage(DES_CurrencySwapperTutorialMessage)
-endEvent
