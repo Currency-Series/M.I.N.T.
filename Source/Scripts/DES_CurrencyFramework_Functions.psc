@@ -1,4 +1,4 @@
-Scriptname DES_CurrencyFramework_Functions extends Quest
+Scriptname DES_CurrencyFramework_Functions extends DES_CurrencyFramework_Register
 {Shared functions for implementing Currency Swapper mods.}
 
 Import SEA_BarterFunctions 
@@ -147,10 +147,8 @@ endFunction
 
 ;--------------------------------------------------
 
-
-
 function RegisterModuleQuest(string filename, int formid)
-;Builds an array to check if the Player uninstalled a M.I.N.T. module.
+;Builds an array to check the Player's installed M.I.N.T. modules.
 
 	int i = 0
 	while (i < ModuleFilenames.length && ModuleFilenames[i] != "")
@@ -171,14 +169,29 @@ endFunction
 function CheckModuleQuests()
 ;Checks arrays to see if the Player uninstalled any M.I.N.T. modules.
 
+	bool ShouldRevertList
+
+	ShouldRevertList = false
 	int i = 0
 	while(i < ModuleFilenames.Length)
-		if !Game.IsPluginInstalled(ModuleFilenames[i])
+		if ModuleFilenames[i] != "" && !Game.IsPluginInstalled(ModuleFilenames[i])
+			debug.notification(ModuleFilenames[i] + " missing!")
 			ModuleFilenames[i] = ""
 			ModuleFormIds[i] = 0
+			ShouldRevertList = true
 		endIf
  	 i += 1
 	endWhile
+	debug.notification("ShouldRevertList = " + ShouldRevertList)
+	if ShouldRevertList
+		DES_CustomCurrencyLocations.Revert()
+		while(i < ModuleFilenames.Length)
+		if ModuleFilenames[i] != "" && Game.IsPluginInstalled(ModuleFilenames[i])
+			(Game.GetFormFromFile(ModuleFormIds[i], ModuleFilenames[i]) as DES_CurrencyFramework_Register).Initialize()
+		endIf
+ 	 i += 1
+	endWhile
+	endIf
 
 endFunction
 
@@ -188,10 +201,11 @@ endFunction
 
 Event OnInit()
 
-	RegisterForKey(47)
-
 	ModuleFilenames = new string[128]
  	ModuleFormIDs = new int[128]
+
+	;For smoke tests.
+	RegisterForKey(47)
 
 endEvent
 
