@@ -9,4 +9,5 @@ endevent
 
 Event OnPlayerGameLoad()
 	SEA_BarterFunctions.RegisterFormForAllEvents(getowningquest())
+(GetOwningQuest() as DES_CurrencyFramework_Functions).CheckModuleQuests()
 endevent

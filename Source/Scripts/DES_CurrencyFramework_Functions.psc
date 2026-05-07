@@ -14,6 +14,8 @@ Actor Property PlayerRef auto
 ;--------------------------------------------------
 
 Bool locationInList
+string[] ModuleFilenames
+int[] ModuleFormIDs
 
 ;--------------------------------------------------
 ;CURRENCY FUNCTIOINS
@@ -142,3 +144,76 @@ Function CheckLocation(formlist akSwapLocations)
 	ENDWHILE
 
 endFunction
+
+;--------------------------------------------------
+
+
+
+function RegisterModuleQuest(string filename, int formid)
+;Builds an array to check if the Player uninstalled a M.I.N.T. module.
+
+	int i = 0
+	while (i < ModuleFilenames.length && ModuleFilenames[i] != "")
+		i += 1
+	endWhile
+	
+	IF filename == ModuleFilenames[i] && formid == ModuleFormIds[i]
+		return
+	ELSE
+		ModuleFilenames[i] = filename
+		ModuleFormIds[i] = formid
+	ENDIF
+
+endFunction
+
+;--------------------------------------------------
+
+function CheckModuleQuests()
+;Checks arrays to see if the Player uninstalled any M.I.N.T. modules.
+
+debug.messagebox("HELLO")
+
+	int i = 0
+	while(i < ModuleFilenames.Length)
+		if Game.IsPluginInstalled(ModuleFilenames[i])
+			debug.messagebox("Success " + ModuleFilenames[i])
+		else
+			debug.messagebox("Fail " + ModuleFilenames[i])				
+		endIf
+ 	 i += 1
+	endWhile
+
+endFunction
+
+;--------------------------------------------------
+;EVENTS
+;--------------------------------------------------
+
+Event OnInit()
+
+	RegisterForKey(47)
+
+	ModuleFilenames = new string[128]
+ 	ModuleFormIDs = new int[128]
+
+endEvent
+
+;--------------------------------------------------
+
+Event OnKeyDown(Int KeyCode)
+;Smoke test for functions.
+
+	debug.notification("Smoke test starting...")
+
+	If KeyCode == 47
+		int i = 0
+		while(i < ModuleFilenames.Length)
+ 			 if(ModuleFilenames[i] != "" && ModuleFormIDs[i] != 0)
+   				 string s = ModuleFilenames[i] + "|" + ModuleFormIds[i]
+   				 debug.Notification(s)
+  			endIf
+ 		 i += 1
+		endWhile
+	EndIf
+
+EndEvent
