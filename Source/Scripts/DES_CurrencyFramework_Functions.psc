@@ -174,25 +174,18 @@ function CheckModuleQuests()
 	int i = 0
 	while(i < ModuleFilenames.Length)
 		if ModuleFilenames[i] != "" && !Game.IsPluginInstalled(ModuleFilenames[i])
-			debug.notification(ModuleFilenames[i] + " missing!")
 			ModuleFilenames[i] = ""
 			ModuleFormIds[i] = 0
 			ShouldRevertList = true
 		endIf
  	 i += 1
 	endWhile
-	debug.notification("ShouldRevertList = " + ShouldRevertList)
 	if ShouldRevertList
 		DES_CustomCurrencyLocations.Revert()
 		i = 0
 		while(i < ModuleFilenames.Length)
 			if ModuleFilenames[i] != "" && Game.IsPluginInstalled(ModuleFilenames[i])
-				debug.Notification("Initializing...")
 				(Game.GetFormFromFile(ModuleFormIds[i], ModuleFilenames[i]) as DES_CurrencyFramework_UtilityInt).Initialize()
-				debug.notification(DES_CustomCurrencyLocations.GetAt(0).GetName())
-				debug.notification(DES_CustomCurrencyLocations.GetAt(1).GetName())
-				debug.notification(DES_CustomCurrencyLocations.GetAt(2).GetName())
-				debug.notification(DES_CustomCurrencyLocations.GetAt(3).GetName())
 			endIf
  		 i += 1
 		endWhile
