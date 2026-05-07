@@ -171,14 +171,11 @@ endFunction
 function CheckModuleQuests()
 ;Checks arrays to see if the Player uninstalled any M.I.N.T. modules.
 
-debug.messagebox("HELLO")
-
 	int i = 0
 	while(i < ModuleFilenames.Length)
-		if Game.IsPluginInstalled(ModuleFilenames[i])
-			debug.messagebox("Success " + ModuleFilenames[i])
-		else
-			debug.messagebox("Fail " + ModuleFilenames[i])				
+		if !Game.IsPluginInstalled(ModuleFilenames[i])
+			ModuleFilenames[i] = ""
+			ModuleFormIds[i] = 0
 		endIf
  	 i += 1
 	endWhile
