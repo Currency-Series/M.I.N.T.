@@ -1,4 +1,4 @@
-Scriptname DES_CurrencyFramework_Functions extends DES_CurrencyFramework_Register
+Scriptname DES_CurrencyFramework_Functions extends DES_CurrencyFramework_UtilityInt
 {Shared functions for implementing Currency Swapper mods.}
 
 Import SEA_BarterFunctions 
@@ -152,15 +152,14 @@ function RegisterModuleQuest(string filename, int formid)
 
 	int i = 0
 	while (i < ModuleFilenames.length && ModuleFilenames[i] != "")
+		IF ModuleFilenames[i] == filename
+			return
+		ENDIF
 		i += 1
 	endWhile
 	
-	IF filename == ModuleFilenames[i] && formid == ModuleFormIds[i]
-		return
-	ELSE
-		ModuleFilenames[i] = filename
-		ModuleFormIds[i] = formid
-	ENDIF
+	ModuleFilenames[i] = filename
+	ModuleFormIds[i] = formid
 
 endFunction
 
@@ -185,12 +184,18 @@ function CheckModuleQuests()
 	debug.notification("ShouldRevertList = " + ShouldRevertList)
 	if ShouldRevertList
 		DES_CustomCurrencyLocations.Revert()
+		i = 0
 		while(i < ModuleFilenames.Length)
-		if ModuleFilenames[i] != "" && Game.IsPluginInstalled(ModuleFilenames[i])
-			(Game.GetFormFromFile(ModuleFormIds[i], ModuleFilenames[i]) as DES_CurrencyFramework_Register).Initialize()
-		endIf
- 	 i += 1
-	endWhile
+			if ModuleFilenames[i] != "" && Game.IsPluginInstalled(ModuleFilenames[i])
+				debug.Notification("Initializing...")
+				(Game.GetFormFromFile(ModuleFormIds[i], ModuleFilenames[i]) as DES_CurrencyFramework_UtilityInt).Initialize()
+				debug.notification(DES_CustomCurrencyLocations.GetAt(0).GetName())
+				debug.notification(DES_CustomCurrencyLocations.GetAt(1).GetName())
+				debug.notification(DES_CustomCurrencyLocations.GetAt(2).GetName())
+				debug.notification(DES_CustomCurrencyLocations.GetAt(3).GetName())
+			endIf
+ 		 i += 1
+		endWhile
 	endIf
 
 endFunction
@@ -228,3 +233,9 @@ Event OnKeyDown(Int KeyCode)
 	EndIf
 
 EndEvent
+
+;--------------------------------------------------
+
+function OnPlayerLoadGame_Alias()
+	CheckModuleQuests()
+endFunction
