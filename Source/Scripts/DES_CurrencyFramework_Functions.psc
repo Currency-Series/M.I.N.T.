@@ -173,21 +173,50 @@ function CheckModuleQuests()
 	ShouldRevertList = false
 	int i = 0
 	while(i < ModuleFilenames.Length)
-		if ModuleFilenames[i] != "" && !Game.IsPluginInstalled(ModuleFilenames[i])
+		string mfile = ModuleFilenames[i]
+		if (mfile != "" && !Game.IsPluginInstalled(mfile))
 			ModuleFilenames[i] = ""
 			ModuleFormIds[i] = 0
 			ShouldRevertList = true
 		endIf
- 	 i += 1
+		i += 1
 	endWhile
 	if ShouldRevertList
+		;find bounding indices
+		int firstBlankIndex = ModuleFilenames.length
+		int lastFullIndex = -1
+		i = 0
+		while(ModuleFilenames[i] != "" && i < ModuleFilenames.length)
+			i += 1
+		endWhile
+		firstBlankIndex = i
+		i = ModuleFilenames.length - 1
+		while(ModuleFilenames[i] == "" && i > firstBlankIndex)
+			i -= 1
+		endWhile
+		lastFullIndex = i
+		;compact array
+		while(firstBlankIndex < lastFullIndex)
+			ModuleFilenames[firstBlankIndex] = ModuleFilenames[lastFullIndex]
+			ModuleFormIds[firstBlankIndex] = ModuleFormIds[lastFullIndex]
+			ModuleFilenames[lastFullIndex] = ""
+			ModuleFormIds[lastFullIndex] = 0
+			while(ModuleFilenames[firstBlankIndex] != "" && firstBlankIndex < ModuleFilenames.length)
+				firstBlankIndex  += 1
+			endWhile
+			while(ModuleFilenames[lastFullIndex] == "" && lastFullIndex > firstBlankIndex)
+				lastFullIndex -= 1
+				endWhile
+		endWhile
+		;revert
 		DES_CustomCurrencyLocations.Revert()
+		;re-register
 		i = 0
 		while(i < ModuleFilenames.Length)
 			if ModuleFilenames[i] != "" && Game.IsPluginInstalled(ModuleFilenames[i])
 				(Game.GetFormFromFile(ModuleFormIds[i], ModuleFilenames[i]) as DES_CurrencyFramework_UtilityInt).Initialize()
 			endIf
- 		 i += 1
+			i += 1
 		endWhile
 	endIf
 
@@ -202,33 +231,12 @@ Event OnInit()
 	ModuleFilenames = new string[128]
  	ModuleFormIDs = new int[128]
 
-	;For smoke tests.
-	RegisterForKey(47)
-
 endEvent
 
 ;--------------------------------------------------
 
-Event OnKeyDown(Int KeyCode)
-;Smoke test for functions.
-
-	debug.notification("Smoke test starting...")
-
-	If KeyCode == 47
-		int i = 0
-		while(i < ModuleFilenames.Length)
- 			 if(ModuleFilenames[i] != "" && ModuleFormIDs[i] != 0)
-   				 string s = ModuleFilenames[i] + "|" + ModuleFormIds[i]
-   				 debug.Notification(s)
-  			endIf
- 		 i += 1
-		endWhile
-	EndIf
-
-EndEvent
-
-;--------------------------------------------------
-
 function OnPlayerLoadGame_Alias()
+
 	CheckModuleQuests()
+
 endFunction
