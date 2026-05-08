@@ -1,0 +1,45 @@
+{
+  "rules" : [
+    {
+      "friendlyName" : "Septim to Sancar",
+      "conditions" : {
+        "locations" : [
+          "0x19285|Skyrim.esm", //Northwatch Keep
+          "0x18C92|Skyrim.esm"  //Thalmor Embassy
+        ],
+        "!references" : [
+          //Smuggled Thalmor Embassy Chest
+          "0x39CF1|Skyrim.esm"
+        ],
+        "bypassUnsafeContainers": true
+      },
+      "changes":[
+        {
+          "remove" : "0xF|Skyrim.esm",
+          "add" : [
+            "0xDE5023|Update.esm"
+          ]
+        }
+      ]
+    },
+    {
+      "friendlyName" : "Fill Ancarion's Vendor Chest",
+      "conditions" : {
+        "references" : [
+          "0x27E0A|Dragonborn.esm"
+        ],
+        "bypassUnsafeContainers": true,
+        "allowVendors" : true,
+        "onlyVendors" : true
+      },
+      "changes":[
+        {
+          "remove" : "0xF|Skyrim.esm",
+          "add" : [
+            "0xDE5023|Update.esm"
+          ]
+        }
+      ]
+    }
+  ]
+}
