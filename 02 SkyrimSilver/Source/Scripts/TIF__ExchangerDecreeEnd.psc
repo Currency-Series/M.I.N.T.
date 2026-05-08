@@ -1,9 +1,10 @@
 ;BEGIN FRAGMENT CODE - Do not edit anything between this and the end comment
-;NEXT FRAGMENT INDEX 5
-Scriptname SF_DES_UlfricExchangerDecree_02000037 Extends Scene Hidden
+;NEXT FRAGMENT INDEX 1
+Scriptname TIF__ExchangerDecreeEnd Extends TopicInfo Hidden
 
-;BEGIN FRAGMENT Fragment_2
-Function Fragment_2()
+;BEGIN FRAGMENT Fragment_0
+Function Fragment_0(ObjectReference akSpeakerRef)
+Actor akSpeaker = akSpeakerRef as Actor
 ;BEGIN CODE
 GetOwningQuest().setStage(1)
 ;END CODE
