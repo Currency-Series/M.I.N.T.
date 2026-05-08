@@ -2,19 +2,9 @@
 ;NEXT FRAGMENT INDEX 13
 Scriptname QF_DES_UlfricWindhelmService_03000002 Extends Quest Hidden
 
-;BEGIN ALIAS PROPERTY Rolff
+;BEGIN ALIAS PROPERTY Hillevi
 ;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_Rolff Auto
-;END ALIAS PROPERTY
-
-;BEGIN ALIAS PROPERTY Calixto
-;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_Calixto Auto
-;END ALIAS PROPERTY
-
-;BEGIN ALIAS PROPERTY CaptainLonelyGale
-;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_CaptainLonelyGale Auto
+ReferenceAlias Property Alias_Hillevi Auto
 ;END ALIAS PROPERTY
 
 ;BEGIN ALIAS PROPERTY WindhelmHostlerBackup
@@ -27,19 +17,9 @@ ReferenceAlias Property Alias_WindhelmHostlerBackup Auto
 ReferenceAlias Property Alias_WindhelmHostler Auto
 ;END ALIAS PROPERTY
 
-;BEGIN ALIAS PROPERTY UlfricExchanger
+;BEGIN ALIAS PROPERTY Torsten
 ;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_UlfricExchanger Auto
-;END ALIAS PROPERTY
-
-;BEGIN ALIAS PROPERTY Torbjorn
-;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_Torbjorn Auto
-;END ALIAS PROPERTY
-
-;BEGIN ALIAS PROPERTY AvalAtheron
-;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_AvalAtheron Auto
+ReferenceAlias Property Alias_Torsten Auto
 ;END ALIAS PROPERTY
 
 ;BEGIN ALIAS PROPERTY Madran
@@ -47,39 +27,9 @@ ReferenceAlias Property Alias_AvalAtheron Auto
 ReferenceAlias Property Alias_Madran Auto
 ;END ALIAS PROPERTY
 
-;BEGIN ALIAS PROPERTY Jora
+;BEGIN ALIAS PROPERTY CaptainLonelyGale
 ;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_Jora Auto
-;END ALIAS PROPERTY
-
-;BEGIN ALIAS PROPERTY Niranye
-;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_Niranye Auto
-;END ALIAS PROPERTY
-
-;BEGIN ALIAS PROPERTY Nilsine
-;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_Nilsine Auto
-;END ALIAS PROPERTY
-
-;BEGIN ALIAS PROPERTY Hillevi
-;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_Hillevi Auto
-;END ALIAS PROPERTY
-
-;BEGIN ALIAS PROPERTY Oengul
-;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_Oengul Auto
-;END ALIAS PROPERTY
-
-;BEGIN ALIAS PROPERTY Torsten
-;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_Torsten Auto
-;END ALIAS PROPERTY
-
-;BEGIN ALIAS PROPERTY Hermir
-;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_Hermir Auto
+ReferenceAlias Property Alias_CaptainLonelyGale Auto
 ;END ALIAS PROPERTY
 
 ;BEGIN ALIAS PROPERTY Brunwulf
@@ -87,31 +37,93 @@ ReferenceAlias Property Alias_Hermir Auto
 ReferenceAlias Property Alias_Brunwulf Auto
 ;END ALIAS PROPERTY
 
-;BEGIN ALIAS PROPERTY Player
-;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_Player Auto
-;END ALIAS PROPERTY
-
 ;BEGIN ALIAS PROPERTY Tova
 ;ALIAS PROPERTY TYPE ReferenceAlias
 ReferenceAlias Property Alias_Tova Auto
 ;END ALIAS PROPERTY
 
+;BEGIN ALIAS PROPERTY Niranye
+;ALIAS PROPERTY TYPE ReferenceAlias
+ReferenceAlias Property Alias_Niranye Auto
+;END ALIAS PROPERTY
+
+;BEGIN ALIAS PROPERTY AvalAtheron
+;ALIAS PROPERTY TYPE ReferenceAlias
+ReferenceAlias Property Alias_AvalAtheron Auto
+;END ALIAS PROPERTY
+
+;BEGIN ALIAS PROPERTY UlfricExchanger
+;ALIAS PROPERTY TYPE ReferenceAlias
+ReferenceAlias Property Alias_UlfricExchanger Auto
+;END ALIAS PROPERTY
+
+;BEGIN ALIAS PROPERTY Jora
+;ALIAS PROPERTY TYPE ReferenceAlias
+ReferenceAlias Property Alias_Jora Auto
+;END ALIAS PROPERTY
+
+;BEGIN ALIAS PROPERTY Rolff
+;ALIAS PROPERTY TYPE ReferenceAlias
+ReferenceAlias Property Alias_Rolff Auto
+;END ALIAS PROPERTY
+
+;BEGIN ALIAS PROPERTY Calixto
+;ALIAS PROPERTY TYPE ReferenceAlias
+ReferenceAlias Property Alias_Calixto Auto
+;END ALIAS PROPERTY
+
+;BEGIN ALIAS PROPERTY Hermir
+;ALIAS PROPERTY TYPE ReferenceAlias
+ReferenceAlias Property Alias_Hermir Auto
+;END ALIAS PROPERTY
+
+;BEGIN ALIAS PROPERTY Nilsine
+;ALIAS PROPERTY TYPE ReferenceAlias
+ReferenceAlias Property Alias_Nilsine Auto
+;END ALIAS PROPERTY
+
+;BEGIN ALIAS PROPERTY Oengul
+;ALIAS PROPERTY TYPE ReferenceAlias
+ReferenceAlias Property Alias_Oengul Auto
+;END ALIAS PROPERTY
+
+;BEGIN ALIAS PROPERTY Player
+;ALIAS PROPERTY TYPE ReferenceAlias
+ReferenceAlias Property Alias_Player Auto
+;END ALIAS PROPERTY
+
+;BEGIN ALIAS PROPERTY Torbjorn
+;ALIAS PROPERTY TYPE ReferenceAlias
+ReferenceAlias Property Alias_Torbjorn Auto
+;END ALIAS PROPERTY
+
 ;BEGIN FRAGMENT Fragment_5
 Function Fragment_5()
 ;BEGIN CODE
-Alias_AvalAtheron.Clear()
-Alias_Hillevi.Clear()
-Alias_Niranye.Clear()
-Alias_Oengul.Clear()
-Alias_Hermir.Clear()
-Alias_Brunwulf.Clear()
-Alias_CaptainLonelyGale.Clear()
-Alias_Jora.Clear()
-Alias_Nilsine.Clear()
-Alias_Torbjorn.Clear()
-Alias_Torsten.Clear()
-Alias_Tova.Clear()
+Alias_UlfricExchanger.trytoEvaluatePackage()
+Alias_AvalAtheron.trytoClear()
+
+Alias_Hillevi.trytoClear()
+
+Alias_Niranye.trytoClear()
+
+Alias_Oengul.trytoClear()
+
+Alias_Hermir.trytoClear()
+
+Alias_Brunwulf.trytoClear()
+
+Alias_CaptainLonelyGale.trytoClear()
+
+Alias_Jora.trytoClear()
+
+Alias_Nilsine.trytoClear()
+
+Alias_Torbjorn.trytoClear()
+
+Alias_Torsten.trytoClear()
+
+Alias_Tova.trytoClear()
 ;END CODE
 EndFunction
 ;END FRAGMENT
