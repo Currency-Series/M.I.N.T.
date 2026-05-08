@@ -1,5 +1,5 @@
 ;BEGIN FRAGMENT CODE - Do not edit anything between this and the end comment
-;NEXT FRAGMENT INDEX 1
+;NEXT FRAGMENT INDEX 5
 Scriptname SF_DES_UlfricExchangerDecree_02000037 Extends Scene Hidden
 
 ;BEGIN FRAGMENT Fragment_2
