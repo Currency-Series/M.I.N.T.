@@ -14,6 +14,7 @@ Actor Property PlayerRef auto
 ;--------------------------------------------------
 
 Bool locationInList
+int Truncated
 string[] ModuleFilenames
 int[] ModuleFormIDs
 
@@ -123,6 +124,7 @@ Function ExchangeCoins(Form akOldCoin, int count, Form akNewCoin, GlobalVariable
 	ELSE
 		newcount = count*worth
 	ENDIF
+	Truncate(newcount)
 	PlayerRef.RemoveItem(akOldCoin, count)
 	PlayerRef.AddItem(akNewCoin, newcount as int)
 
@@ -142,6 +144,18 @@ Function CheckLocation(formlist akSwapLocations)
 		current = current.GetParent()
 		locationInList = akSwapLocations.HasForm(current)
 	ENDWHILE
+
+endFunction
+
+;--------------------------------------------------
+
+Function Truncate(float accurateValue)
+
+Truncated = val * 10.0
+Truncated = truncated / 10
+If (Truncated < accurateValue)
+  Truncated += 1
+EndIf
 
 endFunction
 
