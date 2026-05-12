@@ -151,10 +151,10 @@ endFunction
 
 Function Truncate(float accurateValue)
 
-Truncated = val * 10.0
-Truncated = truncated / 10
+Truncated = accurateValue * 10.0
+Truncated = Truncated / 10
 If (Truncated < accurateValue)
-  Truncated += 1
+  Truncated -= 1
 EndIf
 
 endFunction
