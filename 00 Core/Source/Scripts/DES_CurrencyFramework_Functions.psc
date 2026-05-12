@@ -124,9 +124,15 @@ Function ExchangeCoins(Form akOldCoin, int count, Form akNewCoin, GlobalVariable
 	ELSE
 		newcount = count*worth
 	ENDIF
-	Truncate(newcount)
+
+	Int truncated = val * 10.0
+	truncated = truncated / 10
+	If (truncated < newcount)
+		truncated -= 1
+	EndIf
+
 	PlayerRef.RemoveItem(akOldCoin, count)
-	PlayerRef.AddItem(akNewCoin, newcount as int)
+	PlayerRef.AddItem(akNewCoin, truncated)
 
 endfunction
 
@@ -144,18 +150,6 @@ Function CheckLocation(formlist akSwapLocations)
 		current = current.GetParent()
 		locationInList = akSwapLocations.HasForm(current)
 	ENDWHILE
-
-endFunction
-
-;--------------------------------------------------
-
-Function Truncate(float accurateValue)
-
-Truncated = accurateValue * 10.0
-Truncated = Truncated / 10
-If (Truncated < accurateValue)
-  Truncated -= 1
-EndIf
 
 endFunction
 
