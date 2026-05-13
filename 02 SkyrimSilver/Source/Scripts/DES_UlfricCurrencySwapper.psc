@@ -53,6 +53,7 @@ GlobalVariable Property DES_UlfricHorseCost auto
 Quest property HousePurchase auto
 
 Function UpdateCosts()
+
 	IF WindhelmLocation.GetKeywordData(CWOwner) == CWImperial.GetValue() as int
 		DES_UlfricWorth.SetValue(2)
 		goldValue = 1/DES_UlfricWorth.GetValue() as float
@@ -72,10 +73,23 @@ Function UpdateCosts()
 		HousePurchase.UpdateCurrentInstanceGlobal(CostsToUpdate[i])
 		i += 1
 	endwhile
-	DES_UlfricRoomCost.SetValue(RoomCost.GetValue()*DES_UlfricWorth.GetValue())
+
+	float NewRoomCost = RoomCost.GetValue()*DES_UlfricWorth.GetValue()
+	Int roomTruncated = NewRoomCost as int
+	If (roomTruncated < NewRoomCost)
+		roomTruncated += 1
+	EndIf
+	DES_UlfricRoomCost.SetValue(roomTruncated)
 	UpdateCurrentInstanceGlobal(DES_UlfricRoomCost)
-	DES_UlfricHorseCost.SetValue(HorseCost.GetValue()*DES_UlfricWorth.GetValue())
+
+	float NewHorseCost = HorseCost.GetValue()*DES_UlfricWorth.GetValue()
+	Int horseTruncated = NewHorseCost as int
+	If (horseTruncated < NewHorseCost)
+		horseTruncated += 1
+	EndIf
+	DES_UlfricHorseCost.SetValue(horseTruncated)
 	UpdateCurrentInstanceGlobal(DES_UlfricHorseCost)
+
 endFunction
 
 ;--------------------------------------------------

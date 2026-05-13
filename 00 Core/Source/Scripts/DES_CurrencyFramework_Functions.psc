@@ -14,7 +14,6 @@ Actor Property PlayerRef auto
 ;--------------------------------------------------
 
 Bool locationInList
-int Truncated
 string[] ModuleFilenames
 int[] ModuleFormIDs
 
@@ -100,8 +99,12 @@ Function ConvertCoins(formlist akSwapLocations, ObjectReference akSourceContaine
 		IF locationInList
 			IF !(Game.GetCurrentCrosshairRef()).HasKeyword(DES_ConverterExclusion) && !PlayerRef.GetCurrentLocation().HasKeyword(DES_ConverterExclusion)
 				float count = aiItemCount*aiCoinWorth.GetValue()
+				Int truncated = count as int
+				If (truncated < count)
+					truncated += 1
+				EndIf
 				PlayerRef.removeItem(akBaseItem, aiItemCount as int, true)
-				PlayerRef.addItem(akNewCoin, count as int)
+				PlayerRef.addItem(akNewCoin, truncated as int)
 			ELSEIF (Game.GetCurrentCrosshairRef()).HasKeyword(DES_ConverterExclusion) || PlayerRef.GetCurrentLocation().HasKeyword(DES_ConverterExclusion)
 				ITMGoldUp.Play(PlayerRef)
 				debug.notification(akBaseItem.GetName() + " (" + aiItemCount + ") Added")
@@ -125,10 +128,9 @@ Function ExchangeCoins(Form akOldCoin, int count, Form akNewCoin, GlobalVariable
 		newcount = count*worth
 	ENDIF
 
-	Int truncated = val * 10.0
-	truncated = truncated / 10
+	Int truncated = newcount as int
 	If (truncated < newcount)
-		truncated -= 1
+		truncated += 1
 	EndIf
 
 	PlayerRef.RemoveItem(akOldCoin, count)
