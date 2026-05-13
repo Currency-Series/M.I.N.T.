@@ -1,0 +1,30 @@
+{
+  "MinimumVersion": 1,
+  "Swaps": [
+    {
+      "BaseObject": [
+        "Skyrim.esm|0xF",
+        "Update.esm|0xDE5017",
+        "Update.esm|0xDE5018",
+        "Update.esm|0xDE5023",
+        "Update.esm|0xDE5024",
+        "Update.esm|0xDE5027",
+        "Update.esm|0xDE5029"
+      ],
+      "AltModels": [
+        {
+          "Count": 2,
+          "Model": "plants\\coinbagsmall.nif"
+        },
+        {
+          "Count": 100,
+          "Model": "plants\\coinbagmed.nif"
+        },
+        {
+          "Count": 500,
+          "Model": "plants\\coinbaglarge.nif"
+        }
+      ]
+    }
+  ]
+}
