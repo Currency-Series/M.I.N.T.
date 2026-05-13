@@ -52,6 +52,8 @@ GlobalVariable Property HorseCost auto
 GlobalVariable Property DES_UlfricHorseCost auto
 Quest property HousePurchase auto
 
+Int Truncated
+
 Function UpdateCosts()
 
 	IF WindhelmLocation.GetKeywordData(CWOwner) == CWImperial.GetValue() as int
@@ -67,25 +69,31 @@ Function UpdateCosts()
 		goldValue = 1/DES_UlfricWorth.GetValue() as float
 		DES_Ulfric.SetGoldValue(goldValue as int)
 	ENDIF
+
 	int i = 0
 	while i < CostsToUpdate.Length
-		CostsToUpdate[i].SetValue((defaultCosts[i])*(DES_UlfricWorth.GetValue()))
+		float UlfricHouseCosts = (defaultCosts[i])*(DES_UlfricWorth.GetValue())
+		Truncated = UlfricHouseCosts as int
+		If (Truncated < UlfricHouseCosts)
+			Truncated += 1
+		EndIf
+		CostsToUpdate[i].SetValue(Truncated)
 		HousePurchase.UpdateCurrentInstanceGlobal(CostsToUpdate[i])
 		i += 1
 	endwhile
 
-	float NewRoomCost = RoomCost.GetValue()*DES_UlfricWorth.GetValue()
-	Int roomTruncated = NewRoomCost as int
-	If (roomTruncated < NewRoomCost)
-		roomTruncated += 1
+	float UlfricRoomCost = RoomCost.GetValue()*DES_UlfricWorth.GetValue()
+	Truncated = UlfricRoomCost as int
+	If (Truncated < UlfricRoomCost)
+		Truncated += 1
 	EndIf
 	DES_UlfricRoomCost.SetValue(roomTruncated)
 	UpdateCurrentInstanceGlobal(DES_UlfricRoomCost)
 
-	float NewHorseCost = HorseCost.GetValue()*DES_UlfricWorth.GetValue()
-	Int horseTruncated = NewHorseCost as int
-	If (horseTruncated < NewHorseCost)
-		horseTruncated += 1
+	float UlfricHorseCost = HorseCost.GetValue()*DES_UlfricWorth.GetValue()
+	Truncated = UlfricHorseCost as int
+	If (Truncated < UlfricHorseCost)
+		Truncated += 1
 	EndIf
 	DES_UlfricHorseCost.SetValue(horseTruncated)
 	UpdateCurrentInstanceGlobal(DES_UlfricHorseCost)
