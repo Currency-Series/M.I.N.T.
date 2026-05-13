@@ -48,15 +48,20 @@ GlobalVariable Property DES_DramRoomCost auto
 GlobalVariable Property DES_UlfricChanceNone auto  
 globalvariable property DES_DramWorth auto
 
+Int Truncated
+
 Function UpdateCosts()
+
 	float DramRoomCost = RoomCost.GetValue()*DES_DramWorth.GetValue()
-	Int roomTruncated = DramRoomCost as int
-	If (roomTruncated < DramRoomCost)
-		roomTruncated += 1
+	Truncated = DramRoomCost as int
+	If (Truncated < DramRoomCost)
+		Truncated += 1
 	EndIf
-	DES_DramRoomCost.SetValue(roomTruncated)
+	DES_DramRoomCost.SetValue(Truncated)
 	UpdateCurrentInstanceGlobal(DES_DramRoomCost)
+
 	Ulfric = (Quest.GetQuest("DES_UlfricWindhelmServices")).GetStage()
+
 endFunction
 
 ;--------------------------------------------------
