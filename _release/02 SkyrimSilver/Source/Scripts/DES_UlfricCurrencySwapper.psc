@@ -87,7 +87,7 @@ Function UpdateCosts()
 	If (Truncated < UlfricRoomCost)
 		Truncated += 1
 	EndIf
-	DES_UlfricRoomCost.SetValue(roomTruncated)
+	DES_UlfricRoomCost.SetValue(Truncated)
 	UpdateCurrentInstanceGlobal(DES_UlfricRoomCost)
 
 	float UlfricHorseCost = HorseCost.GetValue()*DES_UlfricWorth.GetValue()
@@ -95,7 +95,7 @@ Function UpdateCosts()
 	If (Truncated < UlfricHorseCost)
 		Truncated += 1
 	EndIf
-	DES_UlfricHorseCost.SetValue(horseTruncated)
+	DES_UlfricHorseCost.SetValue(Truncated)
 	UpdateCurrentInstanceGlobal(DES_UlfricHorseCost)
 
 endFunction
