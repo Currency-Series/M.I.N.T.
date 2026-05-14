@@ -3,6 +3,7 @@ Scriptname DES_MadranSwapper extends ReferenceAlias
 Import SEA_BarterFunctions 
 
 DES_CurrencyFramework_Functions Property CurrencyFunctions auto
+Actor Property PlayerRef auto
 Formlist Property DES_UlfricLocations auto
 MiscObject Property DES_Ulfric auto
 Perk Property DES_WindhelmPriceAdjustmentPerk auto
@@ -10,7 +11,13 @@ Perk Property DES_WindhelmPriceAdjustmentPerk auto
 Bool locationInList
 
 EVENT OnActivate(ObjectReference akActionRef)
-	CurrencyFunctions.CheckLocation(DES_UlfricLocations)
+	locationInList = false
+	Location current = PlayerRef.GetCurrentLocation()
+	locationInList = DES_UlfricLocations.HasForm(current)
+	WHILE(!locationInList && current.GetParent())
+		current = current.GetParent()
+		locationInList = DES_UlfricLocations.HasForm(current)
+	ENDWHILE
 	IF locationInList
 		SuppressGoldNotifications(false)
 		ResetCurrency()
