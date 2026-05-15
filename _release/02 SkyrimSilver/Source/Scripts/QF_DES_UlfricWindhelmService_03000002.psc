@@ -70,20 +70,20 @@ Alias_UlfricExchanger.GetActorRef().EvaluatePackage()
 Utility.Wait(1.0)
 
 Alias_Hillevi.trytoClear()
-HilleviMarker.Disable()
-HilleviMarker.Delete()
+DES_DecreeXMarkerHillevi.Disable()
+DES_DecreeXMarkerHillevi.Delete()
 
 Utility.Wait(0.5)
 
 Alias_Niranye.trytoClear()
-NiranyeMarker.Disable()
-NiranyeMarker.Delete()
+DES_DecreeXMarkerNiranye.Disable()
+DES_DecreeXMarkerNiranye.Delete()
 
 Utility.Wait(1.0)
 
 Alias_AvalAtheron.trytoClear()
-ArvalMarker.Disable()
-ArvalMarker.Delete()
+DES_DecreeXMarkerArval.Disable()
+DES_DecreeXMarkerArval.Delete()
 ;END CODE
 EndFunction
 ;END FRAGMENT
@@ -96,9 +96,9 @@ Quest Property DES_UlfricWindhelmServices  Auto
 
 MiscObject Property DES_Ulfric  Auto  
 
-ObjectReference Property ArvalMarker  Auto  
+ObjectReference Property DES_DecreeXMarkerArval  Auto  
 
-ObjectReference Property HilleviMarker  Auto  
+ObjectReference Property DES_DecreeXMarkerHillevi  Auto  
 
-ObjectReference Property NiranyeMarker  Auto  
+ObjectReference Property DES_DecreeXMarkerNiranye Auto  
 
