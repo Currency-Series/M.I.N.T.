@@ -2,14 +2,9 @@
 ;NEXT FRAGMENT INDEX 13
 Scriptname QF_DES_UlfricWindhelmService_03000002 Extends Quest Hidden
 
-;BEGIN ALIAS PROPERTY Calixto
+;BEGIN ALIAS PROPERTY AvalAtheron
 ;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_Calixto Auto
-;END ALIAS PROPERTY
-
-;BEGIN ALIAS PROPERTY Oengul
-;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_Oengul Auto
+ReferenceAlias Property Alias_AvalAtheron Auto
 ;END ALIAS PROPERTY
 
 ;BEGIN ALIAS PROPERTY WindhelmHostler
@@ -17,39 +12,9 @@ ReferenceAlias Property Alias_Oengul Auto
 ReferenceAlias Property Alias_WindhelmHostler Auto
 ;END ALIAS PROPERTY
 
-;BEGIN ALIAS PROPERTY Player
-;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_Player Auto
-;END ALIAS PROPERTY
-
-;BEGIN ALIAS PROPERTY Hillevi
-;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_Hillevi Auto
-;END ALIAS PROPERTY
-
-;BEGIN ALIAS PROPERTY AvalAtheron
-;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_AvalAtheron Auto
-;END ALIAS PROPERTY
-
-;BEGIN ALIAS PROPERTY Torbjorn
-;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_Torbjorn Auto
-;END ALIAS PROPERTY
-
-;BEGIN ALIAS PROPERTY WindhelmHostlerBackup
-;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_WindhelmHostlerBackup Auto
-;END ALIAS PROPERTY
-
 ;BEGIN ALIAS PROPERTY Madran
 ;ALIAS PROPERTY TYPE ReferenceAlias
 ReferenceAlias Property Alias_Madran Auto
-;END ALIAS PROPERTY
-
-;BEGIN ALIAS PROPERTY Hermir
-;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_Hermir Auto
 ;END ALIAS PROPERTY
 
 ;BEGIN ALIAS PROPERTY UlfricExchanger
@@ -57,14 +22,14 @@ ReferenceAlias Property Alias_Hermir Auto
 ReferenceAlias Property Alias_UlfricExchanger Auto
 ;END ALIAS PROPERTY
 
-;BEGIN ALIAS PROPERTY CaptainLonelyGale
+;BEGIN ALIAS PROPERTY Hillevi
 ;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_CaptainLonelyGale Auto
+ReferenceAlias Property Alias_Hillevi Auto
 ;END ALIAS PROPERTY
 
-;BEGIN ALIAS PROPERTY Jora
+;BEGIN ALIAS PROPERTY Player
 ;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_Jora Auto
+ReferenceAlias Property Alias_Player Auto
 ;END ALIAS PROPERTY
 
 ;BEGIN ALIAS PROPERTY Rolff
@@ -72,29 +37,19 @@ ReferenceAlias Property Alias_Jora Auto
 ReferenceAlias Property Alias_Rolff Auto
 ;END ALIAS PROPERTY
 
-;BEGIN ALIAS PROPERTY Tova
+;BEGIN ALIAS PROPERTY Calixto
 ;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_Tova Auto
+ReferenceAlias Property Alias_Calixto Auto
 ;END ALIAS PROPERTY
 
-;BEGIN ALIAS PROPERTY Brunwulf
+;BEGIN ALIAS PROPERTY WindhelmHostlerBackup
 ;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_Brunwulf Auto
+ReferenceAlias Property Alias_WindhelmHostlerBackup Auto
 ;END ALIAS PROPERTY
 
 ;BEGIN ALIAS PROPERTY Niranye
 ;ALIAS PROPERTY TYPE ReferenceAlias
 ReferenceAlias Property Alias_Niranye Auto
-;END ALIAS PROPERTY
-
-;BEGIN ALIAS PROPERTY Torsten
-;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_Torsten Auto
-;END ALIAS PROPERTY
-
-;BEGIN ALIAS PROPERTY Nilsine
-;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_Nilsine Auto
 ;END ALIAS PROPERTY
 
 ;BEGIN FRAGMENT Fragment_3
@@ -109,30 +64,26 @@ EndFunction
 Function Fragment_5()
 ;BEGIN CODE
 DES_UlfricExchangerDecreeScene.Stop()
-Alias_AvalAtheron.trytoClear()
+
+Alias_UlfricExchanger.GetActorRef().EvaluatePackage()
+
+Utility.Wait(1.0)
 
 Alias_Hillevi.trytoClear()
+HilleviMarker.Disable()
+HilleviMarker.Delete()
+
+Utility.Wait(0.5)
 
 Alias_Niranye.trytoClear()
+NiranyeMarker.Disable()
+NiranyeMarker.Delete()
 
-Alias_Oengul.trytoClear()
+Utility.Wait(1.0)
 
-Alias_Hermir.trytoClear()
-
-Alias_Brunwulf.trytoClear()
-
-Alias_CaptainLonelyGale.trytoClear()
-
-Alias_Jora.trytoClear()
-
-Alias_Nilsine.trytoClear()
-
-Alias_Torbjorn.trytoClear()
-
-Alias_Torsten.trytoClear()
-
-Alias_Tova.trytoClear()
-Alias_UlfricExchanger.GetActorRef().EvaluatePackage()
+Alias_AvalAtheron.trytoClear()
+ArvalMarker.Disable()
+ArvalMarker.Delete()
 ;END CODE
 EndFunction
 ;END FRAGMENT
@@ -144,3 +95,10 @@ Scene Property DES_UlfricExchangerDecreeScene  Auto
 Quest Property DES_UlfricWindhelmServices  Auto  
 
 MiscObject Property DES_Ulfric  Auto  
+
+ObjectReference Property ArvalMarker  Auto  
+
+ObjectReference Property HilleviMarker  Auto  
+
+ObjectReference Property NiranyeMarker  Auto  
+
