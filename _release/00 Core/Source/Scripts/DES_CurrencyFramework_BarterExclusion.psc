@@ -1,12 +1,13 @@
-Scriptname DES_MadranSwapper extends ReferenceAlias
+Scriptname DES_CurrencyFramework_BarterExclusion extends ReferenceAlias  
+{Excludes a specific actor from bartering in the current custom currency. Place on Alias.}
 
 Import SEA_BarterFunctions 
 
 DES_CurrencyFramework_Functions Property CurrencyFunctions auto
 Actor Property PlayerRef auto
-Formlist Property DES_UlfricLocations auto
-MiscObject Property DES_Ulfric auto
-Perk Property DES_WindhelmPriceAdjustmentPerk auto
+Formlist Property akSwapLocations auto
+MiscObject Property akCurrency auto
+Perk Property akPriceMod auto
 
 bool locationInList
 
@@ -31,7 +32,7 @@ endFunction
 ;--------------------------------------------------
 
 EVENT OnActivate(ObjectReference akActionRef)
-	CheckLocation(DES_UlfricLocations)
+	CheckLocation(akSwapLocations )
 	IF locationInList
 		SuppressGoldNotifications(false)
 		ResetCurrency()
@@ -42,9 +43,9 @@ ENDEVENT
 ;--------------------------------------------------
 
 EVENT OnMenuClose(String MenuName)
-	CheckLocation(DES_UlfricLocations)
+	CheckLocation(akSwapLocations )
 	IF MenuName == "Dialogue Menu" && locationInList
-		CurrencyFunctions.SwapCurrency(DES_UlfricLocations, DES_WindhelmPriceAdjustmentPerk, DES_Ulfric)
+		CurrencyFunctions.SwapCurrency(akSwapLocations , akPriceMod, akCurrency)
 	ENDIF
 	UnregisterForMenu("Dialogue Menu")
 ENDEVENT
