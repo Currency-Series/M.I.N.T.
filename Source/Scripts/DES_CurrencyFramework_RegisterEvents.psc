@@ -1,5 +1,5 @@
 Scriptname DES_CurrencyFramework_RegisterEvents   extends ReferenceAlias
-{Registers all custom Currency Swapper events.}
+{Registers all custom Currency Swapper events. Place on Alias.}
 
 import SEA_BarterFunctions
 
