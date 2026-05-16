@@ -62,10 +62,10 @@ Function UpdateCosts()
 	DES_DramRoomCost.SetValue(Truncated)
 	UpdateCurrentInstanceGlobal(DES_DramRoomCost)
 
-	float DramTrainingMult = 10.0*DES_DramWorth.GetValue()
-	float DramTrainingBase = 200.0*DES_DramWorth.GetValue()
+	;float DramTrainingMult = 10.0*DES_DramWorth.GetValue()
+	;float DramTrainingBase = 200.0*DES_DramWorth.GetValue()
 
-	SetTrainingOverrides(true, DramTrainingMult, true, DramTrainingBase)
+	;SetTrainingOverrides(true, DramTrainingMult, true, DramTrainingBase)
 
 	Ulfric = (Quest.GetQuest("DES_UlfricWindhelmServices")).GetStage()
 

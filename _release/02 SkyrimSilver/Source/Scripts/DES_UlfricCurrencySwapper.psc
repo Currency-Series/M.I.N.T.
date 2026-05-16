@@ -100,10 +100,10 @@ Function UpdateCosts()
 	DES_UlfricHorseCost.SetValue(Truncated)
 	UpdateCurrentInstanceGlobal(DES_UlfricHorseCost)
 
-	float UlfricTrainingMult = 10.0*DES_UlfricWorth.GetValue()
-	float UlfricTrainingBase = 200.0*DES_UlfricWorth.GetValue()
+	;float UlfricTrainingMult = 10.0*DES_UlfricWorth.GetValue()
+	;float UlfricTrainingBase = 200.0*DES_UlfricWorth.GetValue()
 
-	SetTrainingOverrides(true, UlfricTrainingMult, true, UlfricTrainingBase)
+	;SetTrainingOverrides(true, UlfricTrainingMult, true, UlfricTrainingBase)
 
 endFunction
 
