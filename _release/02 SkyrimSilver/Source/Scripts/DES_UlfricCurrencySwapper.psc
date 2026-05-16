@@ -1,5 +1,7 @@
 Scriptname DES_UlfricCurrencySwapper extends DES_CurrencyFramework_UtilityInt
 
+Import SEA_BarterFunctions 
+
 DES_CurrencyFramework_Functions Property CurrencyFunctions auto
 
 ;--------------------------------------------------
@@ -98,6 +100,11 @@ Function UpdateCosts()
 	DES_UlfricHorseCost.SetValue(Truncated)
 	UpdateCurrentInstanceGlobal(DES_UlfricHorseCost)
 
+	float UlfricTrainingMult = 10.0*DES_UlfricWorth.GetValue()
+	float UlfricTrainingBase = 200.0*DES_UlfricWorth.GetValue()
+
+	SetTrainingOverrides(true, UlfricTrainingMult, true, UlfricTrainingBase)
+
 endFunction
 
 ;--------------------------------------------------
@@ -128,7 +135,7 @@ Function OnLocationChange_Alias()
 	While CurrencyFunctions.CurrencyIsSwapping
 		Utility.Wait(0.1)
 	endWhile
-	UpdateCosts()
 	CurrencyFunctions.SwapCurrency(DES_UlfricLocations, DES_WindhelmPriceAdjustmentPerk, DES_Ulfric)
+	UpdateCosts()
 
 endFunction

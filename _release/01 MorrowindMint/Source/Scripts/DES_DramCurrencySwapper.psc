@@ -1,5 +1,7 @@
 Scriptname DES_DramCurrencySwapper  extends DES_CurrencyFramework_UtilityInt Conditional
 
+Import SEA_BarterFunctions 
+
 DES_CurrencyFramework_Functions Property CurrencyFunctions auto
 
 ;--------------------------------------------------
@@ -60,6 +62,11 @@ Function UpdateCosts()
 	DES_DramRoomCost.SetValue(Truncated)
 	UpdateCurrentInstanceGlobal(DES_DramRoomCost)
 
+	float DramTrainingMult = 10.0*DES_DramWorth.GetValue()
+	float DramTrainingBase = 200.0*DES_DramWorth.GetValue()
+
+	SetTrainingOverrides(true, DramTrainingMult, true, DramTrainingBase)
+
 	Ulfric = (Quest.GetQuest("DES_UlfricWindhelmServices")).GetStage()
 
 endFunction
@@ -93,8 +100,8 @@ Function OnLocationChange_Alias()
 	While CurrencyFunctions.CurrencyIsSwapping
 		Utility.Wait(0.1)
 	endWhile
-	UpdateCosts()
 	CurrencyFunctions.SwapCurrency(DES_DramLocations, DES_MorrowindPriceAdjustmentPerk, DES_Dram)
+	UpdateCosts()
 
 	if IsStageDone(0)
 		if !PlayerRef.IsInLocation(DLC2RavenRockLocation)
