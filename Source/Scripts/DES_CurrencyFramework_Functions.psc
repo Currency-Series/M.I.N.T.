@@ -8,6 +8,7 @@ Import SEA_BarterFunctions
 ;--------------------------------------------------
 
 Actor Property PlayerRef auto
+Bool Property CurrencyIsSwapping auto
 
 ;--------------------------------------------------
 ;SHARED VALUES
@@ -21,7 +22,6 @@ int[] ModuleFormIDs
 ;CURRENCY FUNCTIOINS
 ;--------------------------------------------------
 
-Bool Property CurrencyIsSwapping auto
 Formlist Property DES_CustomCurrencyLocations auto
 
 Function SwapCurrency(formlist akSwapLocations, Perk akPriceMod, Form akCurrency)
@@ -56,7 +56,7 @@ Function BarterCustomCurrency(Actor akVendor, Form akCurrency, Perk akPriceMod)
 Bool ShouldRevertCurrency
 Form LastCurrency
 
-	CurrencyIsSwapping = 1
+	CurrencyIsSwapping = true
 	LastCurrency = GetCurrency()
 	ShouldRevertCurrency = False
 	IF (!LastCurrency)
@@ -79,7 +79,7 @@ Form LastCurrency
 		SetCurrency(LastCurrency)
 	ENDIF
 	PlayerRef.RemovePerk(akPriceMod)
-	CurrencyIsSwapping = 0
+	CurrencyIsSwapping = false
 
 EndFunction
 
