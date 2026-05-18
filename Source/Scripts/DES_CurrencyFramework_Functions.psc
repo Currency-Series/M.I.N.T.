@@ -25,7 +25,7 @@ int[] ModuleFormIDs
 Formlist Property DES_CustomCurrencyLocations auto
 
 Function SwapCurrency(formlist akSwapLocations, Perk akPriceMod, Form akCurrency)
-{Swaps currency from Gold to the relevant currency. Best placed on a Player ReferenceAlias that checks when the Player changes locations.}
+{Swaps currency from Gold to the relevant currency. Best to call when the Player changes locations.}
 
 	CurrencyIsSwapping = true
 	CheckLocation(akSwapLocations)
