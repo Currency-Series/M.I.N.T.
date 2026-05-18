@@ -120,8 +120,8 @@ Function ExchangeCoins(Form akOldCoin, int count, Form akNewCoin, GlobalVariable
 {Shared exchange function for use when implementing a currency exchanger. Place the TIF__CurrencyFramework_Exchange, TIF__CurrencyFramework_ExchangeAll, or TIF__CurrencyFramework_ExchangeRoom script on the exchange dialogue line to properly call this function.}
 
 	float newcount
-	float worth = aiCoinWorth.GetValue()
 
+	float worth = aiCoinWorth.GetValue()
 	IF divide
 		newcount = count/worth
 	ELSE
@@ -159,7 +159,6 @@ function RegisterModuleQuest(string filename, int formid)
 {Builds arrays to check the Player's installed M.I.N.T. modules.}
 
 	int i = 0
-
 	while (i < ModuleFilenames.length && ModuleFilenames[i] != "")
 		IF ModuleFilenames[i] == filename
 			return
