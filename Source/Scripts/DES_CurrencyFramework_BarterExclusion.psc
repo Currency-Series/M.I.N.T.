@@ -16,6 +16,7 @@ bool locationInList
 ;--------------------------------------------------
 
 Function CheckLocation(formlist akSwapLocations)
+{Utility function to check to see if the Player is in a swapped location.}
 	
 	locationInList = false
 	Location current = PlayerRef.GetCurrentLocation()
