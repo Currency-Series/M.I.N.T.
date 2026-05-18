@@ -156,7 +156,7 @@ endFunction
 ;--------------------------------------------------
 
 function RegisterModuleQuest(string filename, int formid)
-{Builds an array to check the Player's installed M.I.N.T. modules.}
+{Builds arrays to check the Player's installed M.I.N.T. modules.}
 
 	int i = 0
 
