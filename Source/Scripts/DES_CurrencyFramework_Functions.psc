@@ -25,7 +25,7 @@ int[] ModuleFormIDs
 Formlist Property DES_CustomCurrencyLocations auto
 
 Function SwapCurrency(formlist akSwapLocations, Perk akPriceMod, Form akCurrency)
-;Swaps currency from Gold to the relevant currency. Best placed on a Player ReferenceAlias that checks when the Player changes locations.
+{Swaps currency from Gold to the relevant currency. Best placed on a Player ReferenceAlias that checks when the Player changes locations.}
 
 	CurrencyIsSwapping = true
 	CheckLocation(akSwapLocations)
@@ -51,7 +51,7 @@ endFunction
 ;--------------------------------------------------
 
 Function BarterCustomCurrency(Actor akVendor, Form akCurrency, Perk akPriceMod)
-;Swaps currency for a single barter menu. Useful if you only want to swap currency for a single vendor. Place the TIF__CurrencyFramework_Barter script on the sale dialogue line to properly call this function. 
+{Swaps currency for a single barter menu. Useful if you only want to swap currency for a single vendor. Place the TIF__CurrencyFramework_Barter script on the sale dialogue line to properly call this function.} 
 
 Bool ShouldRevertCurrency
 Form LastCurrency
@@ -90,7 +90,7 @@ GlobalVariable Property DES_ConvertCoins auto
 Sound Property ITMGoldUp auto
 
 Function ConvertCoins(formlist akSwapLocations, ObjectReference akSourceContainer, Form akBaseItem, int aiItemCount, GlobalVariable aiCoinWorth, Form akNewCoin)
-;Converts all script-added Gold to custom currency while in swapped locations. Useful to ensuring that quest rewards are given in the correct currency.
+{Converts all script-added Gold to custom currency while in swapped locations. Useful to ensuring that quest rewards are given in the correct currency.}
 
 	IF akSourceContainer || DES_ConvertCoins.GetValue() <= 0
 		return
@@ -117,7 +117,7 @@ endfunction
 ;--------------------------------------------------
 
 Function ExchangeCoins(Form akOldCoin, int count, Form akNewCoin, GlobalVariable aiCoinWorth, bool divide = false)
-;Shared exchange function for use when implementing a currency exchanger. Place the TIF__CurrencyFramework_Exchange, TIF__CurrencyFramework_ExchangeAll, or TIF__CurrencyFramework_ExchangeRoom script on the exchange dialogue line to properly call this function.
+{Shared exchange function for use when implementing a currency exchanger. Place the TIF__CurrencyFramework_Exchange, TIF__CurrencyFramework_ExchangeAll, or TIF__CurrencyFramework_ExchangeRoom script on the exchange dialogue line to properly call this function.}
 
 	float worth = aiCoinWorth.GetValue()
 	float newcount
@@ -143,7 +143,7 @@ endfunction
 ;--------------------------------------------------
 
 Function CheckLocation(formlist akSwapLocations)
-;Utility function to check to see if the Player is in a swapped location.
+{Utility function to check to see if the Player is in a swapped location.}
 	
 	locationInList = false
 	Location current = PlayerRef.GetCurrentLocation()
@@ -158,7 +158,7 @@ endFunction
 ;--------------------------------------------------
 
 function RegisterModuleQuest(string filename, int formid)
-;Builds an array to check the Player's installed M.I.N.T. modules.
+{Builds an array to check the Player's installed M.I.N.T. modules.}
 
 	int i = 0
 	while (i < ModuleFilenames.length && ModuleFilenames[i] != "")
@@ -176,7 +176,7 @@ endFunction
 ;--------------------------------------------------
 
 function CheckModuleQuests()
-;Checks arrays to see if the Player uninstalled any M.I.N.T. modules.
+{Checks arrays to see if the Player uninstalled any M.I.N.T. modules.}
 
 	bool ShouldRevertList
 
