@@ -53,8 +53,8 @@ endFunction
 Function BarterCustomCurrency(Actor akVendor, Form akCurrency, Perk akPriceMod)
 {Swaps currency for a single barter menu. Useful if you only want to swap currency for a single vendor. Place the TIF__CurrencyFramework_Barter script on the sale dialogue line to properly call this function.} 
 
-Bool ShouldRevertCurrency
-Form LastCurrency
+	Bool ShouldRevertCurrency
+	Form LastCurrency
 
 	CurrencyIsSwapping = true
 	LastCurrency = GetCurrency()
