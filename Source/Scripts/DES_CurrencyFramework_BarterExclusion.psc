@@ -33,7 +33,7 @@ endFunction
 ;--------------------------------------------------
 
 EVENT OnActivate(ObjectReference akActionRef)
-	CheckLocation(akSwapLocations )
+	CheckLocation(akSwapLocations)
 	IF locationInList
 		SuppressGoldNotifications(false)
 		ResetCurrency()
@@ -44,7 +44,7 @@ ENDEVENT
 ;--------------------------------------------------
 
 EVENT OnMenuClose(String MenuName)
-	CheckLocation(akSwapLocations )
+	CheckLocation(akSwapLocations)
 	IF MenuName == "Dialogue Menu" && locationInList
 		CurrencyFunctions.SwapCurrency(akSwapLocations , akPriceMod, akCurrency)
 	ENDIF
