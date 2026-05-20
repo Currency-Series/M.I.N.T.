@@ -98,13 +98,9 @@ Function ConvertCoins(formlist akSwapLocations, ObjectReference akSourceContaine
 		CheckLocation(akSwapLocations)
 		IF locationInList
 			IF !(Game.GetCurrentCrosshairRef()).HasKeyword(DES_ConverterExclusion) && !PlayerRef.GetCurrentLocation().HasKeyword(DES_ConverterExclusion)
-				float count = aiItemCount*aiCoinWorth.GetValue()
-				Int truncated = count as int
-				If (truncated < count)
-					truncated += 1
-				EndIf
+				int count = Math.Ceiling(aiItemCount*aiCoinWorth.GetValue())
 				PlayerRef.removeItem(akBaseItem, aiItemCount as int, true)
-				PlayerRef.addItem(akNewCoin, truncated as int)
+				PlayerRef.addItem(akNewCoin, count)
 			ELSEIF (Game.GetCurrentCrosshairRef()).HasKeyword(DES_ConverterExclusion) || PlayerRef.GetCurrentLocation().HasKeyword(DES_ConverterExclusion)
 				ITMGoldUp.Play(PlayerRef)
 				debug.notification(akBaseItem.GetName() + " (" + aiItemCount + ") Added")
@@ -123,16 +119,12 @@ Function ExchangeCoins(Form akOldCoin, int count, Form akNewCoin, GlobalVariable
 
 	float worth = aiCoinWorth.GetValue()
 	IF divide
-		newcount = count/worth
+		newcount = Math.Ceiling(count/worth)
 	ELSE
-		newcount = count*worth
+		newcount = Math.Ceiling(count*worth)
 	ENDIF
-	Int truncated = newcount as int
-	If (truncated < newcount)
-		truncated += 1
-	EndIf
 	PlayerRef.RemoveItem(akOldCoin, count)
-	PlayerRef.AddItem(akNewCoin, truncated)
+	PlayerRef.AddItem(akNewCoin, newcount as int)
 
 endfunction
 

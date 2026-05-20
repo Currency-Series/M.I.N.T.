@@ -16,6 +16,7 @@ bool locationInList
 ;--------------------------------------------------
 
 Function CheckLocation(formlist akSwapLocations)
+{Utility function to check to see if the Player is in a swapped location.}
 	
 	locationInList = false
 	Location current = PlayerRef.GetCurrentLocation()
@@ -32,7 +33,7 @@ endFunction
 ;--------------------------------------------------
 
 EVENT OnActivate(ObjectReference akActionRef)
-	CheckLocation(akSwapLocations )
+	CheckLocation(akSwapLocations)
 	IF locationInList
 		SuppressGoldNotifications(false)
 		ResetCurrency()
@@ -43,7 +44,7 @@ ENDEVENT
 ;--------------------------------------------------
 
 EVENT OnMenuClose(String MenuName)
-	CheckLocation(akSwapLocations )
+	CheckLocation(akSwapLocations)
 	IF MenuName == "Dialogue Menu" && locationInList
 		CurrencyFunctions.SwapCurrency(akSwapLocations , akPriceMod, akCurrency)
 	ENDIF

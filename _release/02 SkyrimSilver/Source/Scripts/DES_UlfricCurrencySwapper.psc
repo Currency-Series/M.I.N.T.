@@ -72,37 +72,26 @@ Function UpdateCosts()
 		DES_Ulfric.SetGoldValue(goldValue as int)
 	ENDIF
 
+	float ulfricValue = DES_UlfricWorth.GetValue()
+
 	int i = 0
 	while i < CostsToUpdate.Length
-		float UlfricHouseCosts = (defaultCosts[i])*(DES_UlfricWorth.GetValue())
-		Truncated = UlfricHouseCosts as int
-		If (Truncated < UlfricHouseCosts)
-			Truncated += 1
-		EndIf
-		CostsToUpdate[i].SetValue(Truncated)
+		int UlfricHouseCosts = Math.Ceiling(defaultCosts[i] * ulfricValue)
+		CostsToUpdate[i].SetValueInt(UlfricHouseCosts)
 		HousePurchase.UpdateCurrentInstanceGlobal(CostsToUpdate[i])
 		i += 1
 	endwhile
 
-	float UlfricRoomCost = RoomCost.GetValue()*DES_UlfricWorth.GetValue()
-	Truncated = UlfricRoomCost as int
-	If (Truncated < UlfricRoomCost)
-		Truncated += 1
-	EndIf
-	DES_UlfricRoomCost.SetValue(Truncated)
+	int UlfricRoomCost = Math.Ceiling(RoomCost.GetValue() * ulfricValue)
+	DES_UlfricRoomCost.SetValueInt(UlfricRoomCost)
 	UpdateCurrentInstanceGlobal(DES_UlfricRoomCost)
 
-	float UlfricHorseCost = HorseCost.GetValue()*DES_UlfricWorth.GetValue()
-	Truncated = UlfricHorseCost as int
-	If (Truncated < UlfricHorseCost)
-		Truncated += 1
-	EndIf
-	DES_UlfricHorseCost.SetValue(Truncated)
+	int UlfricHorseCost = Math.Ceiling(HorseCost.GetValue() * ulfricValue)
+	DES_UlfricHorseCost.SetValueInt(UlfricHorseCost)
 	UpdateCurrentInstanceGlobal(DES_UlfricHorseCost)
 
 	;float UlfricTrainingMult = 10.0*DES_UlfricWorth.GetValue()
 	;float UlfricTrainingBase = 200.0*DES_UlfricWorth.GetValue()
-
 	;SetTrainingOverrides(true, UlfricTrainingMult, true, UlfricTrainingBase)
 
 endFunction

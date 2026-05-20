@@ -25,7 +25,7 @@ int[] ModuleFormIDs
 Formlist Property DES_CustomCurrencyLocations auto
 
 Function SwapCurrency(formlist akSwapLocations, Perk akPriceMod, Form akCurrency)
-;Swaps currency from Gold to the relevant currency. Best placed on a Player ReferenceAlias that checks when the Player changes locations.
+{Swaps currency from Gold to the relevant currency. Best to call when the Player changes locations.}
 
 	CurrencyIsSwapping = true
 	CheckLocation(akSwapLocations)
@@ -51,10 +51,10 @@ endFunction
 ;--------------------------------------------------
 
 Function BarterCustomCurrency(Actor akVendor, Form akCurrency, Perk akPriceMod)
-;Swaps currency for a single barter menu. Useful if you only want to swap currency for a single vendor. Place the TIF__CurrencyFramework_Barter script on the sale dialogue line to properly call this function. 
+{Swaps currency for a single barter menu. Useful if you only want to swap currency for a single vendor. Place the TIF__CurrencyFramework_Barter script on the sale dialogue line to properly call this function.} 
 
-Bool ShouldRevertCurrency
-Form LastCurrency
+	Bool ShouldRevertCurrency
+	Form LastCurrency
 
 	CurrencyIsSwapping = true
 	LastCurrency = GetCurrency()
@@ -90,7 +90,7 @@ GlobalVariable Property DES_ConvertCoins auto
 Sound Property ITMGoldUp auto
 
 Function ConvertCoins(formlist akSwapLocations, ObjectReference akSourceContainer, Form akBaseItem, int aiItemCount, GlobalVariable aiCoinWorth, Form akNewCoin)
-;Converts all script-added Gold to custom currency while in swapped locations. Useful to ensuring that quest rewards are given in the correct currency.
+{Converts all script-added Gold to custom currency while in swapped locations. Useful to ensuring that quest rewards are given in the correct currency.}
 
 	IF akSourceContainer || DES_ConvertCoins.GetValue() <= 0
 		return
@@ -98,13 +98,9 @@ Function ConvertCoins(formlist akSwapLocations, ObjectReference akSourceContaine
 		CheckLocation(akSwapLocations)
 		IF locationInList
 			IF !(Game.GetCurrentCrosshairRef()).HasKeyword(DES_ConverterExclusion) && !PlayerRef.GetCurrentLocation().HasKeyword(DES_ConverterExclusion)
-				float count = aiItemCount*aiCoinWorth.GetValue()
-				Int truncated = count as int
-				If (truncated < count)
-					truncated += 1
-				EndIf
+				int count = Math.Ceiling(aiItemCount*aiCoinWorth.GetValue())
 				PlayerRef.removeItem(akBaseItem, aiItemCount as int, true)
-				PlayerRef.addItem(akNewCoin, truncated as int)
+				PlayerRef.addItem(akNewCoin, count)
 			ELSEIF (Game.GetCurrentCrosshairRef()).HasKeyword(DES_ConverterExclusion) || PlayerRef.GetCurrentLocation().HasKeyword(DES_ConverterExclusion)
 				ITMGoldUp.Play(PlayerRef)
 				debug.notification(akBaseItem.GetName() + " (" + aiItemCount + ") Added")
@@ -117,24 +113,18 @@ endfunction
 ;--------------------------------------------------
 
 Function ExchangeCoins(Form akOldCoin, int count, Form akNewCoin, GlobalVariable aiCoinWorth, bool divide = false)
-;Shared exchange function for use when implementing a currency exchanger. Place the TIF__CurrencyFramework_Exchange, TIF__CurrencyFramework_ExchangeAll, or TIF__CurrencyFramework_ExchangeRoom script on the exchange dialogue line to properly call this function.
+{Shared exchange function for use when implementing a currency exchanger. Place the TIF__CurrencyFramework_Exchange, TIF__CurrencyFramework_ExchangeAll, or TIF__CurrencyFramework_ExchangeRoom script on the exchange dialogue line to properly call this function.}
 
-	float worth = aiCoinWorth.GetValue()
 	float newcount
 
+	float worth = aiCoinWorth.GetValue()
 	IF divide
-		newcount = count/worth
+		newcount = Math.Ceiling(count/worth)
 	ELSE
-		newcount = count*worth
+		newcount = Math.Ceiling(count*worth)
 	ENDIF
-
-	Int truncated = newcount as int
-	If (truncated < newcount)
-		truncated += 1
-	EndIf
-
 	PlayerRef.RemoveItem(akOldCoin, count)
-	PlayerRef.AddItem(akNewCoin, truncated)
+	PlayerRef.AddItem(akNewCoin, newcount as int)
 
 endfunction
 
@@ -143,7 +133,7 @@ endfunction
 ;--------------------------------------------------
 
 Function CheckLocation(formlist akSwapLocations)
-;Utility function to check to see if the Player is in a swapped location.
+{Utility function to check to see if the Player is in a swapped location.}
 	
 	locationInList = false
 	Location current = PlayerRef.GetCurrentLocation()
@@ -158,7 +148,7 @@ endFunction
 ;--------------------------------------------------
 
 function RegisterModuleQuest(string filename, int formid)
-;Builds an array to check the Player's installed M.I.N.T. modules.
+{Builds arrays to check the Player's installed M.I.N.T. modules.}
 
 	int i = 0
 	while (i < ModuleFilenames.length && ModuleFilenames[i] != "")
@@ -167,7 +157,6 @@ function RegisterModuleQuest(string filename, int formid)
 		ENDIF
 		i += 1
 	endWhile
-	
 	ModuleFilenames[i] = filename
 	ModuleFormIds[i] = formid
 
@@ -176,7 +165,7 @@ endFunction
 ;--------------------------------------------------
 
 function CheckModuleQuests()
-;Checks arrays to see if the Player uninstalled any M.I.N.T. modules.
+{Checks arrays to see if the Player uninstalled any M.I.N.T. modules.}
 
 	bool ShouldRevertList
 

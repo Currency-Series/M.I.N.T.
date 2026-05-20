@@ -1,7 +1,7 @@
 {
   "rules" : [
     {
-      "friendlyName" : "Windhelm Septims to Ulfrics",
+      "friendlyName" : "Swap Septims to Ulfrics in Windhelm",
       "conditions" : {
         "locations" : [
           "0x18A57|Skyrim.esm"
@@ -23,7 +23,7 @@
       ]
     },
     {
-      "friendlyName" : "Fill Vendor Chests with Ulfrics | Worth = 0.80",
+      "friendlyName" : "Add Ulfrics to Skyrim Vendors | Worth = 0.80",
       "conditions" : {
         "locations" : [
           "0x18A57|Skyrim.esm"
@@ -45,7 +45,7 @@
       ]
     },
     {
-      "friendlyName" : "Fill Vendor Chests with Ulfrics | Worth = 0.50",
+      "friendlyName" : "Add Ulfrics to Skyrim Vendors | Worth = 0.50",
       "conditions" : {
         "locations" : [
           "0x18A57|Skyrim.esm"
@@ -67,7 +67,7 @@
       ]
     },
     {
-      "friendlyName" : "Fill Vendor Chests with Ulfrics | Worth = 1.0",
+      "friendlyName" : "Add Ulfrics to Skyrim Vendors | Worth = 1.0",
       "conditions" : {
         "locations" : [
           "0x18A57|Skyrim.esm"
@@ -89,7 +89,7 @@
       ]
     },
     {
-      "friendlyName" : "Fill Eyrir's Chest with Ulfrics",
+      "friendlyName" : "Add Ulfrics to Eyrir's Chest",
       "conditions" : {
         "references" : [
           "0x84|WindhelmUsesUlfrics.esp"
@@ -105,7 +105,7 @@
       ]
     },
     {
-      "friendlyName" : "Fill Eyrir's Strongbox with Ulfrics",
+      "friendlyName" : "Add Ulfrics to Eyrir's Strongbox",
       "conditions" : {
         "references" : [
           "0x85|WindhelmUsesUlfrics.esp"

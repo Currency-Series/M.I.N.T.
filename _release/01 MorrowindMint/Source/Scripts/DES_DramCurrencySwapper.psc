@@ -54,17 +54,13 @@ Int Truncated
 
 Function UpdateCosts()
 
-	float DramRoomCost = RoomCost.GetValue()*DES_DramWorth.GetValue()
-	Truncated = DramRoomCost as int
-	If (Truncated < DramRoomCost)
-		Truncated += 1
-	EndIf
-	DES_DramRoomCost.SetValue(Truncated)
+	float dramValue = DES_DramWorth.GetValue()
+	int DramRoomCost = Math.Ceiling(RoomCost.GetValue() * dramValue)
+	DES_DramRoomCost.SetValueInt(DramRoomCost)
 	UpdateCurrentInstanceGlobal(DES_DramRoomCost)
 
 	;float DramTrainingMult = 10.0*DES_DramWorth.GetValue()
 	;float DramTrainingBase = 200.0*DES_DramWorth.GetValue()
-
 	;SetTrainingOverrides(true, DramTrainingMult, true, DramTrainingBase)
 
 	Ulfric = (Quest.GetQuest("DES_UlfricWindhelmServices")).GetStage()

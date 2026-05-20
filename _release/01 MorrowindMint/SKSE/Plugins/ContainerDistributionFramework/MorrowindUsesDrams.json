@@ -1,7 +1,7 @@
 {
   "rules" : [
     {
-      "friendlyName" : "Solstheim Septims to Dram/Septim",
+      "friendlyName" : "Swap Septims to Drams/Septims on Solstheim",
       "conditions" : {
         "locations" : [
           "0x16E2A|Dragonborn.esm"
@@ -15,7 +15,13 @@
         ],
         "!references" : [
           "0x19AFF|Dragonborn.esm", //Prisoner Belongings Chest
-          "0x3CF1B|Dragonborn.esm" //Stolen Goods Chest
+          "0x3CF1B|Dragonborn.esm", //Stolen Goods Chest
+          //Gyldenhul Barrow
+          "0x1A3EA|Dragonborn.esm",
+          "0x1A3E9|Dragonborn.esm",
+          "0x1A3BB|Dragonborn.esm",
+          "0x1A3E8|Dragonborn.esm",
+          "0x1A3BA|Dragonborn.esm"
         ],
         "bypassUnsafeContainers": true
       },
@@ -29,7 +35,7 @@
       ]
     },
     {
-      "friendlyName" : "Fill Vendor Chests with Drams",
+      "friendlyName" : "Add Drams to Solstheim Vendors",
       "conditions" : {
         "locations" : [
           "0x16E2A|Dragonborn.esm"
