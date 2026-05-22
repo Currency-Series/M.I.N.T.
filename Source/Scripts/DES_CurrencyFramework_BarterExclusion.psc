@@ -51,6 +51,6 @@ ENDEVENT
 EVENT OnMenuClose(String MenuName)
 	CheckLocation(akSwapLocations)
 	IF MenuName == "BarterMenu" && locationInList
-		CurrencyFunctions.SwapCurrency(akSwapLocations , akPriceMod, akCurrency)
+		CurrencyFunctions.SwapCurrency(akSwapLocations, akPriceMod, akCurrency)
 	ENDIF
 ENDEVENT
