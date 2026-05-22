@@ -66,11 +66,8 @@ ENDEVENT
 ;	CurrencyFunctions.CurrencyIsSwapping = true
 ;	CheckLocation(akSwapLocations)
 ;	IF MenuName == "BarterMenu" && locationInList
-;
-;		LastCurrency = GetCurrency()
-;		ShouldRevertCurrency = False
-;		IF (!LastCurrency)
-;			ShouldRevertCurrency = True
+;		IF (PlayerRef.HasPerk(akPriceMod))
+;			PlayerRef.RemovePerk(akPriceMod)
 ;		ENDIF
 ;		ResetCurrency()
 ;		SuppressGoldNotifications(false)
@@ -84,16 +81,11 @@ ENDEVENT
 ;	CurrencyFunctions.CurrencyIsSwapping = true
 ;	CheckLocation(akSwapLocations)
 ;	IF MenuName == "BarterMenu" && locationInList
-;		IF (ShouldRevertCurrency)
-;			return
-;		ELSE
-;			IF (PlayerRef.HasPerk(akPriceMod))
-;				PlayerRef.RemovePerk(akPriceMod)
-;			ENDIF
+;		IF (!PlayerRef.HasPerk(akPriceMod))
 ;			PlayerRef.AddPerk(akPriceMod)
-;			SetCurrency(LastCurrency)
-;			SuppressGoldNotifications(true)
 ;		ENDIF
+;		SetCurrency(akCurrency)
+;		SuppressGoldNotifications(true)
 ;	ENDIF
 ;	CurrencyFunctions.CurrencyIsSwapping = false
 ;ENDEVENT
