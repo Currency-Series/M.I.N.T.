@@ -75,6 +75,7 @@ Function BarterCustomCurrency(Actor akVendor, Form akCurrency, Perk akPriceMod)
 	;Skyrim Souls compatibility
 	IF (ShouldRevertCurrency)
 		ResetCurrency()
+		SuppressGoldNotifications(false)
 	ELSE
 		SetCurrency(LastCurrency)
 	ENDIF
