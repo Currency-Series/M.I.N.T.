@@ -10,8 +10,6 @@ MiscObject Property akCurrency auto
 Perk Property akPriceMod auto
 
 bool locationInList
-;bool ShouldRevertCurrency
-;form LastCurrency
 
 ;--------------------------------------------------
 ;UTILITY FUNCTIONS
