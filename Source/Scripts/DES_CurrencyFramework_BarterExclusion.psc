@@ -10,6 +10,8 @@ MiscObject Property akCurrency auto
 Perk Property akPriceMod auto
 
 bool locationInList
+;bool ShouldRevertCurrency
+;form LastCurrency
 
 ;--------------------------------------------------
 ;UTILITY FUNCTIONS
@@ -46,7 +48,52 @@ ENDEVENT
 EVENT OnMenuClose(String MenuName)
 	CheckLocation(akSwapLocations)
 	IF MenuName == "Dialogue Menu" && locationInList
-		CurrencyFunctions.SwapCurrency(akSwapLocations , akPriceMod, akCurrency)
+		CurrencyFunctions.SwapCurrency(akSwapLocations, akPriceMod, akCurrency)
 	ENDIF
 	UnregisterForMenu("Dialogue Menu")
 ENDEVENT
+
+;EVENT OnActivate(ObjectReference akActionRef)
+;	IF akActionRef == PlayerRef
+;		UnregisterForMenu("BarterMenu")
+;		RegisterForMenu("BarterMenu")
+;	ENDIF
+;ENDEVENT
+;
+;--------------------------------------------------
+;
+;EVENT OnMenuOpen(String MenuName)
+;	CurrencyFunctions.CurrencyIsSwapping = true
+;	CheckLocation(akSwapLocations)
+;	IF MenuName == "BarterMenu" && locationInList
+;
+;		LastCurrency = GetCurrency()
+;		ShouldRevertCurrency = False
+;		IF (!LastCurrency)
+;			ShouldRevertCurrency = True
+;		ENDIF
+;		ResetCurrency()
+;		SuppressGoldNotifications(false)
+;	ENDIF
+;	CurrencyFunctions.CurrencyIsSwapping = false
+;ENDEVENT
+;
+;--------------------------------------------------
+;
+;EVENT OnMenuClose(String MenuName)
+;	CurrencyFunctions.CurrencyIsSwapping = true
+;	CheckLocation(akSwapLocations)
+;	IF MenuName == "BarterMenu" && locationInList
+;		IF (ShouldRevertCurrency)
+;			return
+;		ELSE
+;			IF (PlayerRef.HasPerk(akPriceMod))
+;				PlayerRef.RemovePerk(akPriceMod)
+;			ENDIF
+;			PlayerRef.AddPerk(akPriceMod)
+;			SetCurrency(LastCurrency)
+;			SuppressGoldNotifications(true)
+;		ENDIF
+;	ENDIF
+;	CurrencyFunctions.CurrencyIsSwapping = false
+;ENDEVENT
