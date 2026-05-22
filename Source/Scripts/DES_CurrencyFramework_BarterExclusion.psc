@@ -33,24 +33,20 @@ endFunction
 ;--------------------------------------------------
 
 EVENT OnActivate(ObjectReference akActionRef)
-	RegisterForMenu("BarterMenu")
-ENDEVENT
-
-;--------------------------------------------------
-
-EVENT OnMenuOpen(String MenuName)
 	CheckLocation(akSwapLocations)
-	IF MenuName == "BarterMenu" && locationInList
+	IF locationInList
 		SuppressGoldNotifications(false)
 		ResetCurrency()
 	ENDIF
+	RegisterForMenu("Dialogue Menu")
 ENDEVENT
 
 ;--------------------------------------------------
 
 EVENT OnMenuClose(String MenuName)
 	CheckLocation(akSwapLocations)
-	IF MenuName == "BarterMenu" && locationInList
-		CurrencyFunctions.SwapCurrency(akSwapLocations, akPriceMod, akCurrency)
+	IF MenuName == "Dialogue Menu" && locationInList
+		CurrencyFunctions.SwapCurrency(akSwapLocations , akPriceMod, akCurrency)
 	ENDIF
+	UnregisterForMenu("Dialogue Menu")
 ENDEVENT
