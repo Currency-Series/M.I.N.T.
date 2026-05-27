@@ -46,7 +46,44 @@ ENDEVENT
 EVENT OnMenuClose(String MenuName)
 	CheckLocation(akSwapLocations)
 	IF MenuName == "Dialogue Menu" && locationInList
-		CurrencyFunctions.SwapCurrency(akSwapLocations , akPriceMod, akCurrency)
+		CurrencyFunctions.SwapCurrency(akSwapLocations, akPriceMod, akCurrency)
 	ENDIF
 	UnregisterForMenu("Dialogue Menu")
 ENDEVENT
+
+;EVENT OnActivate(ObjectReference akActionRef)
+;	IF akActionRef == PlayerRef
+;		UnregisterForMenu("BarterMenu")
+;		RegisterForMenu("BarterMenu")
+;	ENDIF
+;ENDEVENT
+;
+;--------------------------------------------------
+;
+;EVENT OnMenuOpen(String MenuName)
+;	CurrencyFunctions.CurrencyIsSwapping = true
+;	CheckLocation(akSwapLocations)
+;	IF MenuName == "BarterMenu" && locationInList
+;		IF (PlayerRef.HasPerk(akPriceMod))
+;			PlayerRef.RemovePerk(akPriceMod)
+;		ENDIF
+;		ResetCurrency()
+;		SuppressGoldNotifications(false)
+;	ENDIF
+;	CurrencyFunctions.CurrencyIsSwapping = false
+;ENDEVENT
+;
+;--------------------------------------------------
+;
+;EVENT OnMenuClose(String MenuName)
+;	CurrencyFunctions.CurrencyIsSwapping = true
+;	CheckLocation(akSwapLocations)
+;	IF MenuName == "BarterMenu" && locationInList
+;		IF (!PlayerRef.HasPerk(akPriceMod))
+;			PlayerRef.AddPerk(akPriceMod)
+;		ENDIF
+;		SetCurrency(akCurrency)
+;		SuppressGoldNotifications(true)
+;	ENDIF
+;	CurrencyFunctions.CurrencyIsSwapping = false
+;ENDEVENT

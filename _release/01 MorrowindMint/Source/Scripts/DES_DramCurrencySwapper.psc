@@ -12,6 +12,12 @@ Actor Property PlayerRef auto
 MiscObject Property DES_Dram Auto 
 
 ;--------------------------------------------------
+;SHARED VALUES
+;--------------------------------------------------
+
+float goldValue
+
+;--------------------------------------------------
 ;FUNCTIONS
 ;--------------------------------------------------
 
@@ -37,6 +43,9 @@ Function Initialize()
 	FormID = Math.LogicalAnd(FormID, 0x00FFFFFF)
 	CurrencyFunctions.RegisterModuleQuest("MorrowindUsesDrams.esp", formid)
 
+	goldValue = 1 / DES_DramWorth.GetValue() as float
+	DES_Dram.SetGoldValue(goldValue as int)
+
 	IF Game.IsPluginInstalled("WindhelmUsesUlfrics.esp")
 		DES_UlfricChanceNone.SetValue(0)
 	ENDIF
@@ -49,8 +58,6 @@ GlobalVariable Property RoomCost auto
 GlobalVariable Property DES_DramRoomCost auto  
 GlobalVariable Property DES_UlfricChanceNone auto  
 globalvariable property DES_DramWorth auto
-
-Int Truncated
 
 Function UpdateCosts()
 
@@ -80,6 +87,8 @@ ENDEVENT
 
 Function OnPlayerLoadGame_Alias()
 
+	goldValue = 1 / DES_DramWorth.GetValue() as float
+	DES_Dram.SetGoldValue(goldValue as int)
 	IF Game.IsPluginInstalled("WindhelmUsesUlfrics.esp")
 		DES_UlfricChanceNone.SetValue(0)
 	ENDIF

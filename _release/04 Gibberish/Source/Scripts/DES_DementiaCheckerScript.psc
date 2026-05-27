@@ -7,7 +7,7 @@ MiscObject Property DES_GibberBack auto
 EVENT OnEffectStart(Actor akTarget, Actor akCaster)
 	(DES_GibberSimpleServicesQuest as DES_GibberCurrencySwapper).InMania = 0
 	(DES_GibberSimpleServicesQuest as DES_GibberCurrencySwapper).InDementia = 1
-	DES_Gibber.SetWorldModelPath("COIN/GibberBack.nif")
+	DES_Gibber.SetWorldModelPath("MINT/Gibber/GibberBack.nif")
 	DES_Gibber.SetGoldValue(DES_GibberBack.GetGoldValue())
 	;debug.Messagebox("You are in Dementia.")
 ENDEVENT

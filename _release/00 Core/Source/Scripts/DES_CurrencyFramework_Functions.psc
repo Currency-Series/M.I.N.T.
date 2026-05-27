@@ -51,17 +51,9 @@ endFunction
 ;--------------------------------------------------
 
 Function BarterCustomCurrency(Actor akVendor, Form akCurrency, Perk akPriceMod)
-{Swaps currency for a single barter menu. Useful if you only want to swap currency for a single vendor. Place the TIF__CurrencyFramework_Barter script on the sale dialogue line to properly call this function.} 
-
-	Bool ShouldRevertCurrency
-	Form LastCurrency
+{Swaps from septims to custom currency for a single barter menu. Useful if you only want to swap currency for a single vendor. Place the TIF__CurrencyFramework_Barter script on the sale dialogue line to properly call this function.} 
 
 	CurrencyIsSwapping = true
-	LastCurrency = GetCurrency()
-	ShouldRevertCurrency = False
-	IF (!LastCurrency)
-		ShouldRevertCurrency = True
-	ENDIF
 	IF (PlayerRef.HasPerk(akPriceMod))
 		PlayerRef.RemovePerk(akPriceMod)
 	ENDIF
@@ -73,12 +65,8 @@ Function BarterCustomCurrency(Actor akVendor, Form akCurrency, Perk akPriceMod)
 		Utility.Wait(0.1)
 	ENDWHILE
 	;Skyrim Souls compatibility
-	IF (ShouldRevertCurrency)
-		ResetCurrency()
-	ELSE
-		SetCurrency(LastCurrency)
-	ENDIF
 	PlayerRef.RemovePerk(akPriceMod)
+	ResetCurrency()
 	CurrencyIsSwapping = false
 
 EndFunction

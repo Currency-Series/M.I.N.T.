@@ -1,7 +1,7 @@
 {
   "rules" : [
     {
-      "friendlyName" : "Septim to Sancar",
+      "friendlyName" : "Swap Septims to Sancar in Thalmor Locations",
       "conditions" : {
         "locations" : [
           "0x19285|Skyrim.esm", //Northwatch Keep
@@ -23,7 +23,7 @@
       ]
     },
     {
-      "friendlyName" : "Fill Ancarion's Vendor Chest",
+      "friendlyName" : "Add Sancar to Ancarion's Vendor",
       "conditions" : {
         "references" : [
           "0x27E0A|Dragonborn.esm"

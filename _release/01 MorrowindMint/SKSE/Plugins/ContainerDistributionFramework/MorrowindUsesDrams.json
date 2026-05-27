@@ -35,6 +35,24 @@
       ]
     },
     {
+      "friendlyName" : "Sanatize Drams from Fort Frostmoth",
+      "conditions" : {
+        "!locations" : [
+          //Prevents drams from spawning in Fort Frostmoth
+          "0x14293|Dragonborn.esm" //Fort Frostmoth
+        ],
+        "bypassUnsafeContainers": true
+      },
+      "changes":[
+        {
+          "remove" : "0x6B|MorrowindUsesDrams.esp",
+          "add" : [
+            "0xF|Skyrim.esm"
+          ]
+        }
+      ]
+    },
+    {
       "friendlyName" : "Add Drams to Solstheim Vendors",
       "conditions" : {
         "locations" : [

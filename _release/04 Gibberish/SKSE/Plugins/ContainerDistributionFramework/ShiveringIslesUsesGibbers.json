@@ -1,7 +1,7 @@
 {
   "rules" : [
     {
-      "friendlyName" : "Shivering Isles Vendors Septims to Gibbers",
+      "friendlyName" : "Add Gibbers to Shivering Isles Vendors",
       "conditions" : {
         "locations" : [
           "0xA5165|Skyrim Extended Cut - Saints and Seducers.esp"

@@ -12,11 +12,16 @@ Actor Property PlayerRef auto
 MiscObject Property DES_Ulfric Auto 
 
 ;--------------------------------------------------
+;SHARED VALUES
+;--------------------------------------------------
+
+float goldValue
+
+;--------------------------------------------------
 ;FUNCTIONS
 ;--------------------------------------------------
 
 Formlist Property DES_CustomCurrencyLocations auto
-float goldValue
 
 Function Initialize()
 
@@ -32,7 +37,7 @@ Function Initialize()
 	FormID = Math.LogicalAnd(FormID, 0x00FFFFFF)
 	CurrencyFunctions.RegisterModuleQuest("WindhelmUsesUlfrics.esp", FormID)
 
-	goldValue = 1/DES_UlfricWorth.GetValue() as float
+	goldValue = 1 / DES_UlfricWorth.GetValue() as float
 	DES_Ulfric.SetGoldValue(goldValue as int)
 
 endFunction
@@ -54,21 +59,19 @@ GlobalVariable Property HorseCost auto
 GlobalVariable Property DES_UlfricHorseCost auto
 Quest property HousePurchase auto
 
-Int Truncated
-
 Function UpdateCosts()
 
 	IF WindhelmLocation.GetKeywordData(CWOwner) == CWImperial.GetValue() as int
 		DES_UlfricWorth.SetValue(2)
-		goldValue = 1/DES_UlfricWorth.GetValue() as float
+		goldValue = 1 / DES_UlfricWorth.GetValue() as float
 		DES_Ulfric.SetGoldValue(goldValue as int)
 	ELSEIF SolitudeLocation.GetKeywordData(CWOwner) == CWSons.GetValue() as int
 		DES_UlfricWorth.SetValue(1.0)
-		goldValue = 1/DES_UlfricWorth.GetValue() as float 
+		goldValue = 1 / DES_UlfricWorth.GetValue() as float 
 		DES_Ulfric.SetGoldValue(goldValue as int)
 	ELSE
 		DES_UlfricWorth.SetValue(1.25)
-		goldValue = 1/DES_UlfricWorth.GetValue() as float
+		goldValue = 1 / DES_UlfricWorth.GetValue() as float
 		DES_Ulfric.SetGoldValue(goldValue as int)
 	ENDIF
 
@@ -109,7 +112,7 @@ EndEvent
 
 Function OnPlayerLoadGame_Alias()
 
-	goldValue = 1/DES_UlfricWorth.GetValue() as float
+	goldValue = 1 / DES_UlfricWorth.GetValue() as float
 	DES_Ulfric.SetGoldValue(goldValue as int)
 
 endFunction

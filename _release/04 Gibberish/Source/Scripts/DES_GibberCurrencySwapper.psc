@@ -36,10 +36,10 @@ function Initialize()
 		ConvertManiaGibber(DES_GibberFront)
 	ENDIF
 	IF InDementia == 1
-		DES_Gibber.SetWorldModelPath("COIN/GibberBack.nif")
+		DES_Gibber.SetWorldModelPath("MINT/Gibber/GibberBack.nif")
 		DES_Gibber.SetGoldValue(DES_GibberBack.GetGoldValue())
 	ELSEIF InMania == 1
-		DES_Gibber.SetWorldModelPath("COIN/GibberFront.nif")
+		DES_Gibber.SetWorldModelPath("MINT/Gibber/GibberFront.nif")
 		DES_Gibber.SetGoldValue(DES_GibberFront.GetGoldValue())
 	ENDIF
 	IF (Quest.GetQuest("DES_CoinHandler") as DES_DefaultCoins).GibberFrontValue != 1.61803
@@ -88,11 +88,11 @@ Event OnMenuOpen(String MenuName)
 	IF InMania == 0 && InDementia == 0
 		IF MenuName == "TweenMenu"
 			IF defaultPath == true
-				DES_Gibber.SetWorldModelPath("COIN/GibberBack.nif")
+				DES_Gibber.SetWorldModelPath("MINT/Gibber/GibberBack.nif")
 				DES_Gibber.SetGoldValue(DES_GibberBack.GetGoldValue())
 				defaultPath = false
 			ELSEIF defaultPath == false
-				DES_Gibber.SetWorldModelPath("COIN/GibberFront.nif")
+				DES_Gibber.SetWorldModelPath("MINT/Gibber/GibberFront.nif")
 				DES_Gibber.SetGoldValue(DES_GibberFront.GetGoldValue())
 				defaultPath = true
 			ENDIF
