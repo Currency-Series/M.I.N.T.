@@ -1,4 +1,4 @@
-Scriptname DES_CurrencyFramework_Functions extends DES_CurrencyFramework_UtilityRemote
+Scriptname DES_CurrencyFramework_Functions extends DES_CurrencyFramework_UtilityInt
 {Shared functions for implementing Currency Swapper mods.}
 
 Import SEA_BarterFunctions 
@@ -201,7 +201,7 @@ function CheckModuleQuests()
 		i = 0
 		while(i < ModuleFilenames.Length)
 			if ModuleFilenames[i] != "" && Game.IsPluginInstalled(ModuleFilenames[i])
-				(Game.GetFormFromFile(ModuleFormIds[i], ModuleFilenames[i]) as DES_CurrencyFramework_UtilityRemote).Initialize()
+				(Game.GetFormFromFile(ModuleFormIds[i], ModuleFilenames[i]) as DES_CurrencyFramework_UtilityInt).Initialize()
 			endIf
 			i += 1
 		endWhile
