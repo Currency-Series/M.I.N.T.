@@ -1,0 +1,297 @@
+{
+	"TIF__00024849": {
+		"Fragment_0": "Function Fragment_0(ObjectReference akSpeakerRef)\r\nActor akSpeaker = akSpeakerRef as Actor\r\n;BEGIN CODE\r\n; debug.trace(Self+\"EndRunning\")\r\nAKSpeaker.ShowBarterMenu()\r\n;END CODE\r\nEndFunction"
+	},
+	"TIF__000E6C34": {
+		"Fragment_0": "Function Fragment_0(ObjectReference akSpeakerRef)\r\nActor akSpeaker = akSpeakerRef as Actor\r\n;BEGIN CODE\r\n; debug.trace(Self+\"EndRunning\")\r\nAKSpeaker.ShowBarterMenu()\r\n;END CODE\r\nEndFunction"
+	},
+	"TIF__000E6C35": {
+		"Fragment_0": "Function Fragment_0(ObjectReference akSpeakerRef)\r\nActor akSpeaker = akSpeakerRef as Actor\r\n;BEGIN CODE\r\n; debug.trace(Self+\"EndRunning\")\r\nAKSpeaker.ShowBarterMenu()\r\n;END CODE\r\nEndFunction"
+	},
+	"TIF__0006BC2E": {
+		"Fragment_0": "Function Fragment_0(ObjectReference akSpeakerRef)\r\nActor akSpeaker = akSpeakerRef as Actor\r\n;BEGIN CODE\r\nakSpeaker.ShowBarterMenu()\r\n;(GetOwningQuest() as DialogueWinterholdCollegeQuestScript).EnthirSell=0\r\n;END CODE\r\nEndFunction"
+	},
+	"TIF__0006BC2F": {
+		"Fragment_0": "Function Fragment_0(ObjectReference akSpeakerRef)\r\nActor akSpeaker = akSpeakerRef as Actor\r\n;BEGIN CODE\r\nakSpeaker.ShowBarterMenu()\r\n;(GetOwningQuest() as DialogueWinterholdCollegeQuestScript).EnthirSell=0\r\n;END CODE\r\nEndFunction"
+	},
+	"TIF__0008069D": {
+		"Fragment_4": "Function Fragment_4(ObjectReference akSpeakerRef)\r\nActor akSpeaker = akSpeakerRef as Actor\r\n;BEGIN CODE\r\nakSpeaker.ShowBarterMenu()\r\n;END CODE\r\nEndFunction"
+	},
+	"DLC1_TIF__01003DA9": {
+		"Fragment_4": "Function Fragment_4(ObjectReference akSpeakerRef)\r\nActor akSpeaker = akSpeakerRef as Actor\r\n;BEGIN CODE\r\nakSpeaker.ShowBarterMenu()\r\n;END CODE\r\nEndFunction"
+	},
+	"TIF__000A9635": {
+		"Fragment_4": "Function Fragment_4(ObjectReference akSpeakerRef)\r\nActor akSpeaker = akSpeakerRef as Actor\r\n;BEGIN CODE\r\nakSpeaker.ShowBarterMenu()\r\n;END CODE\r\nEndFunction"
+	},
+	"TIF__0010FF7D": {
+		"Fragment_2": "Function Fragment_2(ObjectReference akSpeakerRef)\r\nActor akSpeaker = akSpeakerRef as Actor\r\n;BEGIN CODE\r\nakSpeaker.ShowBarterMenu()\r\n;END CODE\r\nEndFunction"
+	},
+	"TIF__0008069E": {
+		"Fragment_2": "Function Fragment_2(ObjectReference akSpeakerRef)\r\nActor akSpeaker = akSpeakerRef as Actor\r\n;BEGIN CODE\r\nakSpeaker.ShowBarterMenu()\r\n;END CODE\r\nEndFunction"
+	},
+	"TIF__000A9636": {
+		"Fragment_1": "",
+		"Fragment_2": "Function Fragment_2(ObjectReference akSpeakerRef)\r\nActor akSpeaker = akSpeakerRef as Actor\r\n;BEGIN CODE\r\nakSpeaker.ShowBarterMenu()\r\n;END CODE\r\nEndFunction"
+	},
+	"TIF__000A9637": {
+		"Fragment_2": "Function Fragment_2(ObjectReference akSpeakerRef)\r\nActor akSpeaker = akSpeakerRef as Actor\r\n;BEGIN CODE\r\nakSpeaker.ShowBarterMenu()\r\n;END CODE\r\nEndFunction"
+	},
+	"TIF__0008069F": {
+		"Fragment_2": "Function Fragment_2(ObjectReference akSpeakerRef)\r\nActor akSpeaker = akSpeakerRef as Actor\r\n;BEGIN CODE\r\nakSpeaker.ShowBarterMenu()\r\n;END CODE\r\nEndFunction"
+	},
+	"TIF__000E32F9": {
+		"Fragment_2": "Function Fragment_2(ObjectReference akSpeakerRef)\r\nActor akSpeaker = akSpeakerRef as Actor\r\n;BEGIN CODE\r\nakSpeaker.ShowBarterMenu()\r\n;END CODE\r\nEndFunction"
+	},
+	"TIF__000E32FD": {
+		"Fragment_2": "Function Fragment_2(ObjectReference akSpeakerRef)\r\nActor akSpeaker = akSpeakerRef as Actor\r\n;BEGIN CODE\r\nakSpeaker.ShowBarterMenu()\r\n;END CODE\r\nEndFunction"
+	},
+	"TIF__000E3300": {
+		"Fragment_2": "Function Fragment_2(ObjectReference akSpeakerRef)\r\nActor akSpeaker = akSpeakerRef as Actor\r\n;BEGIN CODE\r\nakSpeaker.ShowBarterMenu()\r\n;END CODE\r\nEndFunction"
+	},
+	"TIF__000806A0": {
+		"Fragment_1": "",
+		"Fragment_2": "Function Fragment_2(ObjectReference akSpeakerRef)\r\nActor akSpeaker = akSpeakerRef as Actor\r\n;BEGIN CODE\r\nakSpeaker.ShowBarterMenu()\r\n;END CODE\r\nEndFunction"
+	},
+	"TIF__000A9638": {
+		"Fragment_2": "Function Fragment_2(ObjectReference akSpeakerRef)\r\nActor akSpeaker = akSpeakerRef as Actor\r\n;BEGIN CODE\r\nakSpeaker.ShowBarterMenu()\r\n;END CODE\r\nEndFunction"
+	},
+	"TIF__000A9639": {
+		"Fragment_2": "Function Fragment_2(ObjectReference akSpeakerRef)\r\nActor akSpeaker = akSpeakerRef as Actor\r\n;BEGIN CODE\r\nakSpeaker.ShowBarterMenu()\r\n;END CODE\r\nEndFunction"
+	},
+	"TIF__000806A2": {
+		"Fragment_2": "Function Fragment_2(ObjectReference akSpeakerRef)\r\nActor akSpeaker = akSpeakerRef as Actor\r\n;BEGIN CODE\r\nakSpeaker.ShowBarterMenu()\r\n;END CODE\r\nEndFunction"
+	},
+	"TIF__000A963A": {
+		"Fragment_2": "Function Fragment_2(ObjectReference akSpeakerRef)\r\nActor akSpeaker = akSpeakerRef as Actor\r\n;BEGIN CODE\r\nakSpeaker.ShowBarterMenu()\r\n;END CODE\r\nEndFunction"
+	},
+	"TIF__000DEE85": {
+		"Fragment_0": "Function Fragment_0(ObjectReference akSpeakerRef)\r\nActor akSpeaker = akSpeakerRef as Actor\r\n;BEGIN CODE\r\nIf WITavernS.IsRunning()\r\n\tWITavernS.ServerGreeted = 1\r\nEndIf\r\nakSpeaker.ShowBarterMenu()\r\n;END CODE\r\nEndFunction"
+	},
+	"TIF__000806A3": {
+		"Fragment_2": "Function Fragment_2(ObjectReference akSpeakerRef)\r\nActor akSpeaker = akSpeakerRef as Actor\r\n;BEGIN CODE\r\nakSpeaker.ShowBarterMenu()\r\n;END CODE\r\nEndFunction"
+	},
+	"TIF__000A963B": {
+		"Fragment_2": "Function Fragment_2(ObjectReference akSpeakerRef)\r\nActor akSpeaker = akSpeakerRef as Actor\r\n;BEGIN CODE\r\nakSpeaker.ShowBarterMenu()\r\n;END CODE\r\nEndFunction"
+	},
+	"TIF__000A963C": {
+		"Fragment_2": "Function Fragment_2(ObjectReference akSpeakerRef)\r\nActor akSpeaker = akSpeakerRef as Actor\r\n;BEGIN CODE\r\nakSpeaker.ShowBarterMenu()\r\n;END CODE\r\nEndFunction"
+	},
+	"TIF__000806A4": {
+		"Fragment_2": "Function Fragment_2(ObjectReference akSpeakerRef)\r\nActor akSpeaker = akSpeakerRef as Actor\r\n;BEGIN CODE\r\nakSpeaker.ShowBarterMenu()\r\n;END CODE\r\nEndFunction"
+	},
+	"TIF__000A963D": {
+		"Fragment_1": "",
+		"Fragment_2": "Function Fragment_2(ObjectReference akSpeakerRef)\r\nActor akSpeaker = akSpeakerRef as Actor\r\n;BEGIN CODE\r\nakSpeaker.ShowBarterMenu()\r\n;END CODE\r\nEndFunction"
+	},
+	"TIF__000A963E": {
+		"Fragment_2": "Function Fragment_2(ObjectReference akSpeakerRef)\r\nActor akSpeaker = akSpeakerRef as Actor\r\n;BEGIN CODE\r\nakSpeaker.ShowBarterMenu()\r\n;END CODE\r\nEndFunction"
+	},
+	"TIF__000806A5": {
+		"Fragment_2": "Function Fragment_2(ObjectReference akSpeakerRef)\r\nActor akSpeaker = akSpeakerRef as Actor\r\n;BEGIN CODE\r\nakSpeaker.ShowBarterMenu()\r\n;END CODE\r\nEndFunction"
+	},
+	"TIF__000A963F": {
+		"Fragment_1": "",
+		"Fragment_2": "Function Fragment_2(ObjectReference akSpeakerRef)\r\nActor akSpeaker = akSpeakerRef as Actor\r\n;BEGIN CODE\r\nakSpeaker.ShowBarterMenu()\r\n;END CODE\r\nEndFunction"
+	},
+	"TIF__000A9640": {
+		"Fragment_2": "Function Fragment_2(ObjectReference akSpeakerRef)\r\nActor akSpeaker = akSpeakerRef as Actor\r\n;BEGIN CODE\r\nakSpeaker.ShowBarterMenu()\r\n;END CODE\r\nEndFunction"
+	},
+	"TIF__000806A6": {
+		"Fragment_2": "Function Fragment_2(ObjectReference akSpeakerRef)\r\nActor akSpeaker = akSpeakerRef as Actor\r\n;BEGIN CODE\r\nakSpeaker.ShowBarterMenu()\r\n;END CODE\r\nEndFunction"
+	},
+	"TIF__000A9641": {
+		"Fragment_1": "",
+		"Fragment_2": "Function Fragment_2(ObjectReference akSpeakerRef)\r\nActor akSpeaker = akSpeakerRef as Actor\r\n;BEGIN CODE\r\nakSpeaker.ShowBarterMenu()\r\n;END CODE\r\nEndFunction"
+	},
+	"TIF__000A9642": {
+		"Fragment_2": "Function Fragment_2(ObjectReference akSpeakerRef)\r\nActor akSpeaker = akSpeakerRef as Actor\r\n;BEGIN CODE\r\nakSpeaker.ShowBarterMenu()\r\n;END CODE\r\nEndFunction"
+	},
+	"TIF__000806A7": {
+		"Fragment_2": "Function Fragment_2(ObjectReference akSpeakerRef)\r\nActor akSpeaker = akSpeakerRef as Actor\r\n;BEGIN CODE\r\nakSpeaker.ShowBarterMenu()\r\n;END CODE\r\nEndFunction"
+	},
+	"TIF__000A9643": {
+		"Fragment_2": "Function Fragment_2(ObjectReference akSpeakerRef)\r\nActor akSpeaker = akSpeakerRef as Actor\r\n;BEGIN CODE\r\nakSpeaker.ShowBarterMenu()\r\n;END CODE\r\nEndFunction"
+	},
+	"TIF__000A9687": {
+		"Fragment_1": "",
+		"Fragment_2": "Function Fragment_2(ObjectReference akSpeakerRef)\r\nActor akSpeaker = akSpeakerRef as Actor\r\n;BEGIN CODE\r\nakSpeaker.ShowBarterMenu()\r\n;END CODE\r\nEndFunction"
+	},
+	"TIF__0007F6BC": {
+		"Fragment_1": "",
+		"Fragment_2": "Function Fragment_2(ObjectReference akSpeakerRef)\r\nActor akSpeaker = akSpeakerRef as Actor\r\n;BEGIN CODE\r\nakSpeaker.ShowBarterMenu()\r\n;END CODE\r\nEndFunction"
+	},
+	"DLC2_TIF__0203689B": {
+		"Fragment_0": "Function Fragment_0(ObjectReference akSpeakerRef)\r\nActor akSpeaker = akSpeakerRef as Actor\r\n;BEGIN CODE\r\nakSpeaker.ShowBarterMenu()\r\n;END CODE\r\nEndFunction"
+	},
+	"DLC2_TIF__0203689C": {
+		"Fragment_0": "Function Fragment_0(ObjectReference akSpeakerRef)\r\nActor akSpeaker = akSpeakerRef as Actor\r\n;BEGIN CODE\r\nakSpeaker.ShowBarterMenu()\r\n;END CODE\r\nEndFunction"
+	},
+	"DLC2_TIF__0203689D": {
+		"Fragment_0": "Function Fragment_0(ObjectReference akSpeakerRef)\r\nActor akSpeaker = akSpeakerRef as Actor\r\n;BEGIN CODE\r\nakSpeaker.ShowBarterMenu()\r\n;END CODE\r\nEndFunction"
+	},
+	"TIF__0009F7FD": {
+		"Fragment_0": "Function Fragment_0(ObjectReference akSpeakerRef)\r\nActor akSpeaker = akSpeakerRef as Actor\r\n;BEGIN CODE\r\nakspeaker.ShowBarterMenu()\r\n;END CODE\r\nEndFunction"
+	},
+	"TIF__000AC98A": {
+		"Fragment_0": "Function Fragment_0(ObjectReference akSpeakerRef)\r\nActor akSpeaker = akSpeakerRef as Actor\r\n;BEGIN CODE\r\nakspeaker.ShowBarterMenu()\r\n;END CODE\r\nEndFunction"
+	},
+	"TIF__000BB962": {
+		"Fragment_0": "Function Fragment_0(ObjectReference akSpeakerRef)\r\nActor akSpeaker = akSpeakerRef as Actor\r\n;BEGIN CODE\r\nakSpeaker.ShowBarterMenu()\r\n(MG01 as MG01QuestScript).StartPointer()\r\n;END CODE\r\nEndFunction"
+	},
+	"TIF__00109E69": {
+		"Fragment_0": "Function Fragment_0(ObjectReference akSpeakerRef)\r\nActor akSpeaker = akSpeakerRef as Actor\r\n;BEGIN CODE\r\nakSpeaker.ShowBarterMenu()\r\n;END CODE\r\nEndFunction"
+	},
+	"TIF__00109E6A": {
+		"Fragment_0": "Function Fragment_0(ObjectReference akSpeakerRef)\r\nActor akSpeaker = akSpeakerRef as Actor\r\n;BEGIN CODE\r\nakSpeaker.ShowBarterMenu()\r\n;END CODE\r\nEndFunction"
+	},
+	"TIF__00109E6B": {
+		"Fragment_0": "Function Fragment_0(ObjectReference akSpeakerRef)\r\nActor akSpeaker = akSpeakerRef as Actor\r\n;BEGIN CODE\r\nakSpeaker.ShowBarterMenu()\r\n;END CODE\r\nEndFunction"
+	},
+	"DLC1_TIF__0100F81E": {
+		"Fragment_0": "Function Fragment_0(ObjectReference akSpeakerRef)\r\nActor akSpeaker = akSpeakerRef as Actor\r\n;BEGIN CODE\r\nakSpeaker.ShowBarterMenu()\r\n;END CODE\r\nEndFunction"
+	},
+	"DLC1_TIF__0100F81F": {
+		"Fragment_0": "Function Fragment_0(ObjectReference akSpeakerRef)\r\nActor akSpeaker = akSpeakerRef as Actor\r\n;BEGIN CODE\r\nakSpeaker.ShowBarterMenu()\r\n;END CODE\r\nEndFunction"
+	},
+	"DLC1_TIF__0100F820": {
+		"Fragment_0": "Function Fragment_0(ObjectReference akSpeakerRef)\r\nActor akSpeaker = akSpeakerRef as Actor\r\n;BEGIN CODE\r\nakSpeaker.ShowBarterMenu()\r\n;END CODE\r\nEndFunction"
+	},
+	"DLC1_TIF__0100F821": {
+		"Fragment_0": "Function Fragment_0(ObjectReference akSpeakerRef)\r\nActor akSpeaker = akSpeakerRef as Actor\r\n;BEGIN CODE\r\nakSpeaker.ShowBarterMenu()\r\n;END CODE\r\nEndFunction"
+	},
+	"DLC1_TIF__0100F822": {
+		"Fragment_0": "Function Fragment_0(ObjectReference akSpeakerRef)\r\nActor akSpeaker = akSpeakerRef as Actor\r\n;BEGIN CODE\r\nakSpeaker.ShowBarterMenu()\r\n;END CODE\r\nEndFunction"
+	},
+	"DLC1_TIF__0100F823": {
+		"Fragment_0": "Function Fragment_0(ObjectReference akSpeakerRef)\r\nActor akSpeaker = akSpeakerRef as Actor\r\n;BEGIN CODE\r\nakSpeaker.ShowBarterMenu()\r\n;END CODE\r\nEndFunction"
+	},
+	"DLC1_TIF__0100F824": {
+		"Fragment_0": "Function Fragment_0(ObjectReference akSpeakerRef)\r\nActor akSpeaker = akSpeakerRef as Actor\r\n;BEGIN CODE\r\nakSpeaker.ShowBarterMenu()\r\n;END CODE\r\nEndFunction"
+	},
+	"DLC1_TIF__0100F825": {
+		"Fragment_0": "Function Fragment_0(ObjectReference akSpeakerRef)\r\nActor akSpeaker = akSpeakerRef as Actor\r\n;BEGIN CODE\r\nakSpeaker.ShowBarterMenu()\r\n;END CODE\r\nEndFunction"
+	},
+	"DLC1_TIF__0100F826": {
+		"Fragment_0": "Function Fragment_0(ObjectReference akSpeakerRef)\r\nActor akSpeaker = akSpeakerRef as Actor\r\n;BEGIN CODE\r\nakSpeaker.ShowBarterMenu()\r\n;END CODE\r\nEndFunction"
+	},
+	"DLC1_TIF__0100E7A9": {
+		"Fragment_0": "Function Fragment_0(ObjectReference akSpeakerRef)\r\nActor akSpeaker = akSpeakerRef as Actor\r\n;BEGIN CODE\r\nakSpeaker.ShowBarterMenu()\r\n;END CODE\r\nEndFunction"
+	},
+	"DLC1_TIF__0100E7AA": {
+		"Fragment_0": "Function Fragment_0(ObjectReference akSpeakerRef)\r\nActor akSpeaker = akSpeakerRef as Actor\r\n;BEGIN CODE\r\nakSpeaker.ShowBarterMenu()\r\n;END CODE\r\nEndFunction"
+	},
+	"DLC1_TIF__0100E7AB": {
+		"Fragment_0": "Function Fragment_0(ObjectReference akSpeakerRef)\r\nActor akSpeaker = akSpeakerRef as Actor\r\n;BEGIN CODE\r\nakSpeaker.ShowBarterMenu()\r\n;END CODE\r\nEndFunction"
+	},
+	"DLC1_TIF__01010663": {
+		"Fragment_0": "Function Fragment_0(ObjectReference akSpeakerRef)\r\nActor akSpeaker = akSpeakerRef as Actor\r\n;BEGIN CODE\r\nakSpeaker.ShowBarterMenu()\r\n;END CODE\r\nEndFunction"
+	},
+	"DLC1_TIF__01010664": {
+		"Fragment_0": "Function Fragment_0(ObjectReference akSpeakerRef)\r\nActor akSpeaker = akSpeakerRef as Actor\r\n;BEGIN CODE\r\nakSpeaker.ShowBarterMenu()\r\n;END CODE\r\nEndFunction"
+	},
+	"DLC1_TIF__01010665": {
+		"Fragment_0": "Function Fragment_0(ObjectReference akSpeakerRef)\r\nActor akSpeaker = akSpeakerRef as Actor\r\n;BEGIN CODE\r\nakSpeaker.ShowBarterMenu()\r\n;END CODE\r\nEndFunction"
+	},
+	"DLC1_TIF__01010666": {
+		"Fragment_0": "Function Fragment_0(ObjectReference akSpeakerRef)\r\nActor akSpeaker = akSpeakerRef as Actor\r\n;BEGIN CODE\r\nakSpeaker.ShowBarterMenu()\r\n;END CODE\r\nEndFunction"
+	},
+	"DLC1_TIF__01010667": {
+		"Fragment_0": "Function Fragment_0(ObjectReference akSpeakerRef)\r\nActor akSpeaker = akSpeakerRef as Actor\r\n;BEGIN CODE\r\nakSpeaker.ShowBarterMenu()\r\n;END CODE\r\nEndFunction"
+	},
+	"DLC1_TIF__01010668": {
+		"Fragment_0": "Function Fragment_0(ObjectReference akSpeakerRef)\r\nActor akSpeaker = akSpeakerRef as Actor\r\n;BEGIN CODE\r\nakSpeaker.ShowBarterMenu()\r\n;END CODE\r\nEndFunction"
+	},
+	"DLC1_TIF__01010669": {
+		"Fragment_0": "Function Fragment_0(ObjectReference akSpeakerRef)\r\nActor akSpeaker = akSpeakerRef as Actor\r\n;BEGIN CODE\r\nakSpeaker.ShowBarterMenu()\r\n;END CODE\r\nEndFunction"
+	},
+	"DLC1_TIF__0101066A": {
+		"Fragment_0": "Function Fragment_0(ObjectReference akSpeakerRef)\r\nActor akSpeaker = akSpeakerRef as Actor\r\n;BEGIN CODE\r\nakSpeaker.ShowBarterMenu()\r\n;END CODE\r\nEndFunction"
+	},
+	"DLC1_TIF__0101066B": {
+		"Fragment_0": "Function Fragment_0(ObjectReference akSpeakerRef)\r\nActor akSpeaker = akSpeakerRef as Actor\r\n;BEGIN CODE\r\nakSpeaker.ShowBarterMenu()\r\n;END CODE\r\nEndFunction"
+	},
+	"DLC1_TIF__0101066C": {
+		"Fragment_0": "Function Fragment_0(ObjectReference akSpeakerRef)\r\nActor akSpeaker = akSpeakerRef as Actor\r\n;BEGIN CODE\r\nakSpeaker.ShowBarterMenu()\r\n;END CODE\r\nEndFunction"
+	},
+	"DLC1_TIF__0101066D": {
+		"Fragment_0": "Function Fragment_0(ObjectReference akSpeakerRef)\r\nActor akSpeaker = akSpeakerRef as Actor\r\n;BEGIN CODE\r\nakSpeaker.ShowBarterMenu()\r\n;END CODE\r\nEndFunction"
+	},
+	"DLC1_TIF__0101066E": {
+		"Fragment_0": "Function Fragment_0(ObjectReference akSpeakerRef)\r\nActor akSpeaker = akSpeakerRef as Actor\r\n;BEGIN CODE\r\nakSpeaker.ShowBarterMenu()\r\n;END CODE\r\nEndFunction"
+	},
+	"DLC1_TIF__0101066F": {
+		"Fragment_0": "Function Fragment_0(ObjectReference akSpeakerRef)\r\nActor akSpeaker = akSpeakerRef as Actor\r\n;BEGIN CODE\r\nakSpeaker.ShowBarterMenu()\r\n;END CODE\r\nEndFunction"
+	},
+	"DLC1_TIF__01010670": {
+		"Fragment_0": "Function Fragment_0(ObjectReference akSpeakerRef)\r\nActor akSpeaker = akSpeakerRef as Actor\r\n;BEGIN CODE\r\nakSpeaker.ShowBarterMenu()\r\n;END CODE\r\nEndFunction"
+	},
+	"DLC1_TIF__01010671": {
+		"Fragment_0": "Function Fragment_0(ObjectReference akSpeakerRef)\r\nActor akSpeaker = akSpeakerRef as Actor\r\n;BEGIN CODE\r\nakSpeaker.ShowBarterMenu()\r\n;END CODE\r\nEndFunction"
+	},
+	"DLC1_TIF__01010672": {
+		"Fragment_0": "Function Fragment_0(ObjectReference akSpeakerRef)\r\nActor akSpeaker = akSpeakerRef as Actor\r\n;BEGIN CODE\r\nakSpeaker.ShowBarterMenu()\r\n;END CODE\r\nEndFunction"
+	},
+	"TIF__000A9634": {
+		"Fragment_4": "Function Fragment_4(ObjectReference akSpeakerRef)\r\nActor akSpeaker = akSpeakerRef as Actor\r\n;BEGIN CODE\r\nakSpeaker.ShowBarterMenu()\r\n;END CODE\r\nEndFunction"
+	},
+	"BYOH_TIF__01003E64": {
+		"Fragment_4": "Function Fragment_4(ObjectReference akSpeakerRef)\r\nActor akSpeaker = akSpeakerRef as Actor\r\n;BEGIN CODE\r\nakSpeaker.ShowBarterMenu()\r\n;END CODE\r\nEndFunction"
+	},
+	"BYOH_TIF__01003E58": {
+		"Fragment_0": "Function Fragment_0(ObjectReference akSpeakerRef)\r\nActor akSpeaker = akSpeakerRef as Actor\r\n;BEGIN CODE\r\nakSpeaker.ShowBarterMenu()\r\n;END CODE\r\nEndFunction"
+	},
+	"DLC2_TIF__02017E70": {
+		"Fragment_0": "Function Fragment_0(ObjectReference akSpeakerRef)\r\nActor akSpeaker = akSpeakerRef as Actor\r\n;BEGIN CODE\r\nakSpeaker.ShowBarterMenu()\r\n;END CODE\r\nEndFunction"
+	},
+	"DLC2_TIF__0202C437": {
+		"Fragment_0": "Function Fragment_0(ObjectReference akSpeakerRef)\r\nActor akSpeaker = akSpeakerRef as Actor\r\n;BEGIN CODE\r\nakSpeaker.ShowBarterMenu()\r\n;END CODE\r\nEndFunction"
+	},
+	"DLC2_TIF__0202C438": {
+		"Fragment_0": "Function Fragment_0(ObjectReference akSpeakerRef)\r\nActor akSpeaker = akSpeakerRef as Actor\r\n;BEGIN CODE\r\nakSpeaker.ShowBarterMenu()\r\n;END CODE\r\nEndFunction"
+	},
+	"DLC2_TIF__02036A5C": {
+		"Fragment_0": "Function Fragment_0(ObjectReference akSpeakerRef)\r\nActor akSpeaker = akSpeakerRef as Actor\r\n;BEGIN CODE\r\nakSpeaker.ShowBarterMenu()\r\n;END CODE\r\nEndFunction"
+	},
+	"DLC2_TIF__02036A5D": {
+		"Fragment_0": "Function Fragment_0(ObjectReference akSpeakerRef)\r\nActor akSpeaker = akSpeakerRef as Actor\r\n;BEGIN CODE\r\nakSpeaker.ShowBarterMenu()\r\n;END CODE\r\nEndFunction"
+	},
+	"DLC2_TIF__02036A5E": {
+		"Fragment_0": "Function Fragment_0(ObjectReference akSpeakerRef)\r\nActor akSpeaker = akSpeakerRef as Actor\r\n;BEGIN CODE\r\nakSpeaker.ShowBarterMenu()\r\n;END CODE\r\nEndFunction"
+	},
+	"DLC2_TIF__0201EEAC": {
+		"Fragment_0": "Function Fragment_0(ObjectReference akSpeakerRef)\r\nActor akSpeaker = akSpeakerRef as Actor\r\n;BEGIN CODE\r\nakSpeaker.ShowBarterMenu()\r\n;END CODE\r\nEndFunction"
+	},
+	"DLC2_TIF__0201EEAD": {
+		"Fragment_0": "Function Fragment_0(ObjectReference akSpeakerRef)\r\nActor akSpeaker = akSpeakerRef as Actor\r\n;BEGIN CODE\r\nakSpeaker.ShowBarterMenu()\r\n;END CODE\r\nEndFunction"
+	},
+	"DLC2_TIF__0201EEAE": {
+		"Fragment_0": "Function Fragment_0(ObjectReference akSpeakerRef)\r\nActor akSpeaker = akSpeakerRef as Actor\r\n;BEGIN CODE\r\nakSpeaker.ShowBarterMenu()\r\n;END CODE\r\nEndFunction"
+	},
+	"DLC2_TIF__0201EEAF": {
+		"Fragment_0": "Function Fragment_0(ObjectReference akSpeakerRef)\r\nActor akSpeaker = akSpeakerRef as Actor\r\n;BEGIN CODE\r\nakSpeaker.ShowBarterMenu()\r\n;END CODE\r\nEndFunction"
+	},
+	"DLC2_TIF__0201F9C0": {
+		"Fragment_0": "Function Fragment_0(ObjectReference akSpeakerRef)\r\nActor akSpeaker = akSpeakerRef as Actor\r\n;BEGIN CODE\r\nakSpeaker.ShowBarterMenu()\r\n;END CODE\r\nEndFunction"
+	},
+	"DLC2_TIF__02027F93": {
+		"Fragment_0": "Function Fragment_0(ObjectReference akSpeakerRef)\r\nActor akSpeaker = akSpeakerRef as Actor\r\n;BEGIN CODE\r\nakSpeaker.ShowBarterMenu()\r\n;END CODE\r\nEndFunction"
+	},
+	"DLC2_TIF__0202BC60": {
+		"Fragment_0": "Function Fragment_0(ObjectReference akSpeakerRef)\r\nActor akSpeaker = akSpeakerRef as Actor\r\n;BEGIN CODE\r\nakSpeaker.ShowBarterMenu()\r\n;END CODE\r\nEndFunction"
+	},
+	"DLC2_TIF__0202BC61": {
+		"Fragment_0": "Function Fragment_0(ObjectReference akSpeakerRef)\r\nActor akSpeaker = akSpeakerRef as Actor\r\n;BEGIN CODE\r\nakSpeaker.ShowBarterMenu()\r\n;END CODE\r\nEndFunction"
+	},
+	"DLC2_TIF__0202BC62": {
+		"Fragment_0": "Function Fragment_0(ObjectReference akSpeakerRef)\r\nActor akSpeaker = akSpeakerRef as Actor\r\n;BEGIN CODE\r\nakSpeaker.ShowBarterMenu()\r\n;END CODE\r\nEndFunction"
+	},
+	"DLC2_TIF__0202BC63": {
+		"Fragment_0": "Function Fragment_0(ObjectReference akSpeakerRef)\r\nActor akSpeaker = akSpeakerRef as Actor\r\n;BEGIN CODE\r\nakSpeaker.ShowBarterMenu()\r\n;END CODE\r\nEndFunction"
+	},
+	"DLC2_TIF__0202BC64": {
+		"Fragment_0": "Function Fragment_0(ObjectReference akSpeakerRef)\r\nActor akSpeaker = akSpeakerRef as Actor\r\n;BEGIN CODE\r\nakSpeaker.ShowBarterMenu()\r\n;END CODE\r\nEndFunction"
+	},
+	"DLC2_TIF__0202BC65": {
+		"Fragment_0": "Function Fragment_0(ObjectReference akSpeakerRef)\r\nActor akSpeaker = akSpeakerRef as Actor\r\n;BEGIN CODE\r\nakSpeaker.ShowBarterMenu()\r\n;END CODE\r\nEndFunction"
+	}
+}
